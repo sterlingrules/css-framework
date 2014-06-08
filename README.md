@@ -52,7 +52,7 @@ Use these within a class whenever you need a color. For example `color: $black; 
   * For text elements use `.negative` `<span class="negative">-0.89%</span>`
 
 ## 2. Typography
-Our global default font-size is 14px, with a line-height of 20px. `<p>` tags receive a margin top and bottom of 5px and 15px respectively.
+Our global default font-size is 14px, with a line-height of 20px. `<p>` tags receive a margin top and bottom of 5px and 15px respectively. (Fonts are in em's, however these are their approximate pixel sizes)
 * `h1` or `.gigantic`: font-size 28px, line-height 21px
 * `h2` or `.huge`: font-size 24px, line-height 25.2px
 * `h3` or `.bigger`: font-size 18px
@@ -96,7 +96,7 @@ Our global default font-size is 14px, with a line-height of 20px. `<p>` tags rec
 ### 3.4 Animations
 * `transition` defaults to `all 0.5s ease`
   * Use `@include transition`
-  * To change `@include transition(none 300ms ease-in-out)`
+  * To change, use short hand: `@include transition(<property> <duration> <function> <delay>)`
 * `animate`
   * Use `@include animate(<name>, <duration>)`
   * Current animations are:
@@ -110,12 +110,14 @@ To add style to the button, follow the `.btn` class with a theme. Some element t
 * `.btn.blue` or `<input type="submit" />`
 * `.btn.gray` or `<input disabled="disabled" />`
 * `.btn.light-gray`
+* `.btn.orange`
+* `.btn.green`
 
 ## 5. Forms
 For any questions with form structure visit http://www.w3schools.com/html/html_forms.asp
 * For checkboxes or radio buttons wrap the input with a label in a `div.checkbox-wrap` or `div.radio-wrap` respectively.
   * Example: `<div class="checkbox-wrap><input type="checkbox" /><label>Awesome</label></div>`
-* To give checkboxes and radio buttons our fancy style, add `.effeckt-ckbox` or `.effeckt-rdio` respectively.
+* To give checkboxes and radio buttons our fancy style, add `.effeckt-ckbox` or `.effeckt-rdio` to the input respectively.
 
 ## 6. Components
 * Tabs
@@ -124,7 +126,7 @@ For any questions with form structure visit http://www.w3schools.com/html/html_f
 * Ticker
 
 ### 6.1 Tabs
-This works with the Ruby on Rails tabs_tag helper. Put tabs in an unordered list `<ul><li></li></ul>` with a `.nav-tabs` class. Use with `.inline-list` class to layout nab-tabs next to each other. Add `.active` classes to the nab-tab and tab-pane you want highlighted first.
+This works with the Ruby on Rails tabs_tag helper. Put tabs in an unordered list `<ul><li></li></ul>` with a `.nav-tabs` class. Use with `.inline-list` class to layout nav-tabs next to each other. Add `.active` classes to the nav-tab and tab-pane you want highlighted first.
 
 You can also use the tab style without the tab functionality by placing `data-link="true"` inside the parent `<li></li>`. This will make the link change pages.
 
@@ -205,7 +207,7 @@ Example:
 
     <div class="html-tip" title="#html-tooltip">
         I have an HTML tooltip!
-        <div id="html-tooltip" style="display: none;">
+        <div id="html-tooltip hidden">
             <img src="example.png" />
             <h1>Example with <strong>HTML</strong></h1>
         </div>
@@ -228,6 +230,25 @@ Example:
     <div class="two_col">
         <div class="col">Column 1</div>
         <div class="col">Column 2</div>
+    </div>
+
+For additional structure, you can nest columns.
+
+Example for 4 columns:
+
+    <div class="two_col">
+        <div class="col">
+        	<div class="two_col">
+		        <div class="col">Column 1</div>
+		        <div class="col">Column 2</div>
+		    </div>
+        </div>
+        <div class="col">
+        	<div class="two_col">
+		        <div class="col">Column 3</div>
+		        <div class="col">Column 4</div>
+		    </div>
+        </div>
     </div>
 
 ### 7.2 Dashboard
