@@ -1,0 +1,89 @@
+@charset "UTF-8";
+@import "compass";
+
+  article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+    display: block;
+  }
+
+  html {
+    background-color: #1a113e;
+    background: #1a113e;
+  }
+
+  body {
+    color: #fff;
+    font-family: 'Arimo', sans-serif;
+    font-size: 14px;
+    margin:0px;
+    margin-top:-2px;
+  }
+
+  a, a:visited, a:hover {
+    color: #ffab23;
+    text-decoration: none;
+  }
+
+  #header {
+    height: 63px;
+    line-height: 63px;
+    background: #2a2055;
+    background-color: #2a2055;
+    position: fixed;
+    width: 100%;
+    z-index: 11;
+  }
+
+  #header .inner {
+    margin: 0 auto;
+    width: 940px;
+    position: relative;
+  }
+
+  #header #logo {
+    position: absolute;
+    left: 400px;
+    top: 10px;
+    display: block;
+    width: 155px;
+    height: 50px;
+    background: image-url('logo-nav-small.png') no-repeat 0px 0px;
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+  }
+
+  #wrapper {
+    width: 970px;
+    min-height: 600px;
+    margin: 0 auto;
+  }
+
+  .index-layout {
+    text-align: center;
+  }
+
+  .index-layout .inner {
+    font-size: 11px;
+  }
+
+  .message-info {
+    font-family: 'Arimo', sans-serif;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    letter-spacing: -1px;
+    font-size: 30px;
+    font-weight: 100;
+    text-align: center;
+    color: white;
+    text-shadow: 0 1px 0 black;
+    margin: 30px 0 15px;
+  }
+
+  .wrapper {
+    padding-top: 118px;
+  }
+
+  .inner .links a{
+    color: #fff;
+    margin:0 5px;
+  }

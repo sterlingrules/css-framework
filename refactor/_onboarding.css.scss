@@ -1,0 +1,62 @@
+ul.onboarding-process {
+	width: 502px;
+	margin-bottom: 30px;
+	li {
+		border: solid 3px white;
+		&.step {
+			width: 25px;
+			height: 25px;
+			font-weight: bold;
+			background-color: $lightGray;
+			line-height: 18px;
+			@include border-radius(12.5px);
+
+			&.active, &.processed {
+				background-color: $blue;
+			}
+		}
+		&.spacer {
+			width:200px;
+			vertical-align: middle;
+			margin: 0 -1px;
+			background-color: $white;
+		}
+	}
+}
+.onboarding {
+
+	.details.master_detail_col {
+		width: 700px;
+		& > .col:first-child { width: 29%; }
+	    & > .col:last-child { width: 70%; }
+	}
+	.interests-container,
+	.suggested-members.master_detail_col {
+		width: 991px;
+		#feed {
+			width: 100%;
+			margin-left: 0;
+		}
+	}
+	#interests li { margin: 5px; }
+}
+#interests {
+	.avatar-block,
+	.avatar-block.large {
+		width: 172px;
+		height: auto;
+		cursor: pointer;
+		&.checked {
+			img { opacity: 0.35; }
+			background: $green image-url('check-large.png') center center no-repeat;
+		}
+		img {
+			position: relative;
+			height: 172px;
+			width: 172px;
+			max-width: 172px;
+		}
+	}
+}
+
+#side-follow-nav { position: fixed; top: 322px; max-width: 125px; }

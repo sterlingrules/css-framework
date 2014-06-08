@@ -1,0 +1,566 @@
+@import "refactor/animations";
+
+/*
+-------------------------------------------------------------
+  LAYOUT
+-------------------------------------------------------------
+1. GENERAL
+2. HEADER
+    2.1 HEADER (LOGGED OUT)
+    2.2 ACTIVITY DRAWER
+3. SIDEBAR
+4. FOOTER
+4. COLUMNS
+*/
+
+
+/* 1. GENERAL ------------------------------------------------------------- */
+
+.wrapper {
+    display: block;
+    width: 1280px;
+    margin: 0 auto;
+    @include box-sizing;
+
+    &.sidebar {
+        position: absolute;
+        width: 100%;
+
+        &.fixed {
+            position: fixed;
+            bottom: 0;
+            width: 1280px;
+            left: 50%;
+            margin-left: -640px;
+        }
+    }
+}
+.row {
+    position: relative;
+    top: 89px;
+    min-height: 100%;
+    padding-bottom: 89px;
+}
+.full-width {
+    width: 100%;
+    &:not(.feed) {
+        @include box-sizing;
+    }
+}
+.half-width { width: 50%; @include box-sizing; }
+.third-width { width: 32%; @include box-sizing; }
+.two-third-width { width: 66%; @include box-sizing; }
+.fixed-container {
+    position: fixed;
+    z-index: 1;
+    &, &.wrapper {
+        pointer-events: none !important;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='your_transparent.png', sizingMethod='scale');
+        background: none;
+        & > div {
+            pointer-events: auto;
+        }
+    }
+}
+.row .fixed-container { top: 89px; }
+
+
+/* 2. HEADER ------------------------------------------------------------- */
+
+.logo-icon,
+.logotype,
+.logo-large {
+    display: block;
+    width: 28px;
+    height: 60px;
+    text-indent: -999px;
+    background: image-url('logo-nav-small@2x.png') left center no-repeat;
+    background-size: 120px 38px;
+}
+.logotype { width: 120px; }
+.logo-large {
+    width: 435px;
+    height: 147px;
+    background: image-url('hvst-logo-homepage@2x.png') 0 0 no-repeat;
+    background-size: 435px 147px;
+}
+.logo-large.mobile {
+    width: 217px;
+    height: 73px;
+    background: image-url('hvst-logo-homepage.png') 0 0 no-repeat;
+    background-size: 217px 73px;
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    min-height: 68px;
+    background: $purple;
+
+    & .wrapper > ul.inline-list > li {
+        width: 49.5%;
+        @include box-sizing;
+    }
+    .ticker-token {
+        margin-right: 4px; /* This is when there's multiple layed out in the header */
+        background-color: $blue;
+    }
+    #search {
+        width: 400px;
+        .search-query {
+            font-size: 1.28em;
+            padding: 6px 10px 4px;
+            margin: 14px -50px 0 4px;
+            color: $white;
+            background: $darkPurple image-url('search.png') no-repeat 98% 9px;
+            &::-webkit-input-placeholder { color: $slightlyDifferentShadeOfGrayForTopSearch; }
+            &:-moz-placeholder { color: $slightlyDifferentShadeOfGrayForTopSearch; } /* Firefox 18- */
+            &::-moz-placeholder { color: $slightlyDifferentShadeOfGrayForTopSearch; } /* Firefox 19+ */
+            &:-ms-input-placeholder { color: $slightlyDifferentShadeOfGrayForTopSearch; }
+            &.placeholder { color: $slightlyDifferentShadeOfGrayForTopSearch; } /* IE */
+            &:focus {
+                padding: 5px 9px 3px;
+                color: $black;
+                background: $white image-url('search.png') no-repeat 98% 10px;
+                border: 1px solid $blue;
+            }
+        }
+        input[type=submit] {
+            cursor: pointer;
+            height: 40px;
+            width: 40px;
+            background: transparent;
+            color: transparent;
+        }
+    }
+    #new_post {
+        overflow: hidden;
+        height: 68px;
+    }
+    .tip {
+        overflow: hidden;
+        width: 90%;
+        height: 73px;
+        margin: 15px 0 0 10px;
+    }
+
+    /* Entry Form */
+    .title-callout {
+        color: $lightGray;
+        padding: 4px 96px 4px 0; /* avatar + gear */
+        display: none;
+    }
+    .avatar { width: 68px; height: 68px; }
+    .gear {
+        position: relative;
+        display: block;
+        cursor: pointer;
+        width: 28px;
+        height: 68px;
+
+        .fa-gear { line-height: 68px; color:$white; }
+
+        &:hover {
+            ul.dropdown-menu {
+                display: block;
+                margin-top: 0;
+            }
+        }
+    }
+    .funds_allocated_label { padding: 4px 5px 0 0; }
+
+    /* Everything that's hidden in #header inactive state */
+    .post_options,
+    .post_assets,
+    .funds_allocated_label,
+    .tip {
+        display: none;
+    }
+
+    .ticker-info {
+        display: none;
+        width: 400px;
+        margin-top: 12px;
+        h2 { letter-spacing: -1px; }
+
+        .sentiment{
+            dl {
+                width: 50%;
+                margin: 5px 0 0;
+                dt, dd {
+                    padding: 2px 5px 2px 0;
+                    color: $gray;
+                    line-height: 1.15em;
+                    @extend .bold;
+                }
+                dt { @extend .left; }
+                dd {
+                    color: $white;
+                    text-align: right;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+
+    @include transition(all 200ms ease-in);
+}
+
+.entry-form {
+    textarea,
+    #post_title {
+        width: 230px;
+        height: 68px;
+        background: $white;
+        @include border-radius(0);
+        @include box-shadow(0 0 10px rgba(0,0,0,0.65) inset);
+        @include transition(all 200ms ease-in);
+        @include box-sizing;
+        @include appearance;
+        &.full-width {
+            @extend .full-width;
+        }
+        &:focus { color: $black; }
+    }
+    textarea { overflow: auto; }
+    #post_title {
+        background: $white;
+        display: none;
+        height: auto;
+        margin: 0 0 1px;
+        @include transition(none);
+    }
+    .post_options, .post_assets {
+        width: 230px;
+        min-height: 40px;
+        padding-left: 4px;
+
+        label {
+            width: 150px;
+            margin-left: 5px;
+        }
+        @include transition(all 200ms ease-in);
+        @include box-sizing;
+    }
+    #upload {
+        width: 80%;
+        max-width: 80%;
+        .btn.dashed { display: block; }
+        #upload-list {
+            padding: 5px 0;
+            li { padding-top: 5px; padding-bottom: 5px; }
+            li:nth-child(odd) { background: transparentize($black, 0.2); }
+            .negative { cursor: pointer; }
+        }
+    }
+}
+
+#header.entering-post {
+    max-height: 200px;
+    overflow:hidden;
+
+    #search {
+        width: 0;
+        .search-query {
+            width: 0;
+            padding: 4px 0; /* keeps the width 0 */
+            @include transition(none);
+        }
+    }
+    #new_post {
+        textarea, #post_title, #meta_data { width: 480px; max-height: 400px; @include transition(none); }
+        .post_options, .post_assets { width: 480px; }
+        #post_title { display: block; height: auto; }
+    }
+    /* Everything that's displayed in #header inactive state */
+    .title-callout,
+    .post_options,
+    .post_assets,
+    .funds_allocated_label,
+    .tip {
+        display: block;
+    }
+    @include transition(all 200ms ease-in);
+}
+
+#header.endAnimation {
+    overflow: visible;
+
+    #progress { display: block; }
+    .tip,
+    #new_post {
+        height: auto;
+        overflow: visible;
+    }
+}
+
+/* metadata */
+#meta_data {
+    margin-bottom: 15px;
+    background: $lightGray;
+    @extend .padding-top-bottom;
+    @extend .padding-left-right;
+    @include box-sizing;
+
+    img {
+        vertical-align: top;
+        width: 25%;
+        height: auto;
+        margin-right: 10px;
+        &:not(.thumbnail) { display: none; }
+        &.thumbnail { display: inline-block !important; }
+    }
+    .info.thumbnail { width: 66%; }
+    span {
+        &:not(.thumbnail) { display: none; }
+        .thumbnail { display: block; }
+    }
+}
+
+/* Files */
+.files {
+    overflow: hidden;
+    display: block;
+    margin: 2px 20px 0 0;
+
+    input[type=file] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 15px;
+        opacity: 0;
+    }
+}
+.uploader {
+    position: relative;
+    width: 25px;
+    background: none;
+    border: none;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    span.icon-chart{
+        cursor: pointer;
+        width: 20px;
+        height: 18px;
+    }
+    &.active.photo {
+        color: transparent;
+        margin-right: 10px;
+        span.icon-chart {
+            display: none;
+        }
+    }
+}
+
+.pdf-upload {
+    position: relative;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+#post_long_form_article { padding-top: 0px; }
+#post_long_form_article_label { margin: -30px 0 10px 140px; }
+.uploader,
+.uploader.icon-tip,
+.upload-placeholder {
+    display: none;
+    &.active { display: block; }
+}
+
+/* 2.1 HEADER (LOGGED OUT) */
+.heading, .footer {
+    background: $white;
+    color: $gray;
+    @include border-radius(4px);
+    padding: 10px 20px;
+    margin-bottom: 20px;
+
+    .btn { margin: -8px -16px 0 0; }
+}
+
+/* 2.2 ACTIVITY DRAWER */
+#activity_drawer {
+    position: relative;
+    width: 50px;
+    height: 68px;
+
+    #drawer {
+        position: absolute;
+        top: 80%;
+        z-index: 1;
+        display: none;
+        margin-left: -125px;
+        @include box-shadow(0 4px 16px transparentize($black, 0.5));
+
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: -2px;
+            padding: 5px 0;
+            @include box-shadow(0 2px 4px transparentize($black, 0.8));
+            @include border-radius(4px 4px 0 0);
+        }
+
+        &.active {
+            display: block;
+            ul, &:before, &::before { display: block; }
+        }
+    }
+    ul {
+        display: none;
+        overflow-y: scroll;
+        width: 300px;
+        min-height: 100px;
+        max-height: 300px;
+        color: $darkGray;
+        background: $white;
+        @include border-radius(0 0 4px 4px);
+
+        li {
+            padding: 10px;
+            color: $gray;
+            border-bottom-color: $blue;
+            border-bottom: 1px solid transparentize($blue, 0.6);
+            -webkit-overflow-scrolling: touch;
+
+            a { color: $black; @extend .bold; }
+
+            &, &:hover { background: transparentize($blue, 0.7); }
+            &.read {
+                color: $gray;
+                background: $white;
+                border-bottom-color: $lightGray;
+                border-bottom-color: transparentize($lightGray, 0.5);
+
+                a { color: $blue; }
+            }
+            &.read:hover { background: transparentize($lightGray, 0.8); }
+        }
+    }
+    #drawer:before, #drawer::before { display: none; }
+    .avatar {
+        vertical-align: top;
+        width: 32px;
+        height: 32px;
+        margin: 2px 5px 0 0;
+        // @include border-radius(50%);
+    }
+    .info { width: 80%; }
+    .badge {
+        cursor: pointer;
+        display: block;
+        width: 30px;
+        height: 30px;
+        margin: 22px 10px 0;
+        font-size: 1.825em;
+        color: $white;
+        text-decoration: none;
+        @include border-radius(50%);
+
+        &:hover { color: $white; text-decoration: none; }
+        &.active {
+            margin-top: 19px;
+            font: 900 1em 'Helvetica', Helvetica, 'Arial', sans-serif;
+            line-height: 28px !important;
+            color: $white;
+            background: $red;
+
+            &:before, &::before,
+            &:after, &::after {
+                display: none;
+            }
+        }
+    }
+}
+
+
+/* 3. SIDEBAR ------------------------------------------------------------- */
+#sidebar {
+    position: relative;
+    width: 400px;
+
+    .widget {
+        margin-bottom: 20px;
+        padding: 5px 10px;
+        .header { padding: 5px 0px 10px 0px; }
+
+    }
+    .profile-border {
+        @include border-radius(4px);
+    }
+    .clear-widget {
+        margin-bottom: 20px;
+        padding: 5px 10px;
+        .header { padding: 5px 0px 10px 0px; }
+
+    }
+    #quote_search { margin: 0px 0px 20px 0px; }
+    &.fixed {
+        position: fixed;
+        &.right { right: 0; }
+        &.left { left: 0; }
+    }
+}
+
+/* 4. FOOTER ------------------------------------------------------------- */
+
+footer, #footer {
+    clear: both;
+    min-height: 190px;
+    margin-top: 10px;
+    color: $gray;
+    @include box-sizing;
+
+    &:not(.footer-box) {
+        background-image: image-url('logo-small-white.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    .copy { line-height: 30px; }
+    li {
+        padding: 2px 8px;
+        a, a:hover { color: $gray; }
+    }
+    p, a {
+        color: $gray;
+        text-shadow: none;
+    }
+}
+.content-card-container:not(.portfolio-container) {
+    .footer {
+        margin: 0;
+        background: $white;
+        @include border-radius(4px);
+        color: $gray;
+    }
+}
+
+
+/* 5. COLUMNS ------------------------------------------------------------- */
+
+.col {
+    vertical-align: top;
+    display: inline-block;
+    @include box-sizing;
+}
+.two_col > .col { width: 49.5%; }
+.three_col > .col,
+.frequency-span .controls > label.radio { width: 32.9%; }
+.master_detail_col {
+    & > .col:first-child { width: 20%; }
+    & > .col:last-child { width: 79%; }
+}
+.three_col_overflow {
+    @include column-count;
+    @include column-gap;
+}
+.two_col_overflow {
+    @include column-count(2);
+    @include column-gap;
+}

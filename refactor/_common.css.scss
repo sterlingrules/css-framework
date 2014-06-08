@@ -1,0 +1,1227 @@
+/*
+1. General
+	1.1 Colors
+	1.2 Typography
+	1.3 Defaults
+2. Common Classes
+3. Forms
+4. Buttons
+5. Components
+	5.1 Tabs
+	5.2 Toggle
+	5.3 Tooltips
+	5.4 Dropdown Menu
+	5.5 Ticker
+	5.6 Avatar
+	5.7 Tab Menu
+	5.8 Loader
+	5.9 Slider
+	5.10 Alerts/Dialogues/Messages
+*/
+
+/* 1. GENERAL ------------------------------------------------------------- */
+/* 1.1 Colors */
+.white-text, a.white-text { color: $white; }
+.lightgray-text { color: $lightGray; }
+.darkgray-text { color: $darkGray; }
+.blue-text { color: $blue; }
+.purple-text { color: $purple; }
+.orange-text { color: $orange; }
+.inactive, .gray-text, .gray-text { color: $gray; }
+.gray-text a { color: $blue; }
+.positive, a.positive { color: $green; }
+.negative, a.negative { color: $red; }
+
+.black-bg { background-color: $black; }
+.white-bg { background-color: $white; }
+.lightpurple-bg { background-color: $lightPurple; }
+.purple-bg { background-color: $purple; }
+.lightgray-bg { background-color: $lightGray; }
+.darkpurple-bg { background-color: $darkPurple; }
+.blue-bg { background-color: $blue; }
+.darkgray-bg { background-color: $darkGray; }
+.red-bg { background-color: $red; }
+
+/* 1.2 Typography */
+html, body, p, a, input, button, textarea, h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-smoothing: antialiased;
+}
+html, body, input, textarea, .normal {
+	font: normal 14px/20px "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	color: $darkGray;
+}
+h1, h2, h3, h4, h5, h6 { font-weight: 900; }
+.fa { font-weight: 100 !important; }
+
+.colossal { /* 53px/14px */
+	font-weight: 100;
+	font-family: 'Oswald', 'Ultralight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-size: 6em; line-height: 1em;
+	text-shadow: none;
+}
+.mega { /* 53px/14px */
+	font-weight: 100;
+	font-family: 'Oswald', 'Ultralight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-size: 3.4em; line-height: 1em;
+	text-shadow: none;
+	&.small { font-size: 1.5em; }
+}
+h1, .gigantic, h1.mega { font-size: 2em; line-height: 1.5em; } a.mega { text-decoration: none; } /* 28px/21px */
+h2, .huge { font-size: 1.6em; line-height: 1.3em; } /* 24px/25.2px */
+h3, .bigger { font-size: 1.28em; line-height: 1.5em; } /* 18px/21px */
+h4, .big { font-size: 1.14em; line-height: 1.28em; } /* 16px/18px */
+h5 { font-size: 1.1em; line-height: 1.26em; } /* 14px/16px */
+small, .small { font-size: 0.90em; line-height: 1.5em; } /* 12px/21px */
+.tiny { font-size: 0.7em; line-height: 1.2em; } /* 8px/16.8px */
+strong, b, .bold, .bold a { font-weight: 900; }
+.light { font-weight: 100; }
+.thin, a.thin { font-weight: 300; }
+i, em, .italic { font-style: oblique; }
+.dash-underline {
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	&:hover {
+		text-decoration: none;
+	}
+}
+.cursor-pointer { cursor: pointer; }
+
+.blur-text {
+	color: transparent;
+	text-shadow: 0 0 5px white;
+}
+
+/* 1.3 Defaults */
+html, body {
+	height: 100%;
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+	background: $lightPurple;
+}
+/* Opera Fix */
+body:before {
+	content: "";
+	height: 100%;
+	float: left;
+	width: 0;
+	margin-top: -32767px;
+}
+p {
+	margin: 5px 0 15px;
+	&.big {
+		line-height: 2em;
+	}
+}
+img { vertical-align: middle; }
+ul, li { list-style: none; }
+ul.default,
+ol.default {
+	list-style: square;
+	li {
+		list-style: inherit;
+		margin: 5px 0 5px 35px;
+	}
+}
+ol.default { list-style: decimal; }
+a, a:focus, a:active {
+	cursor: pointer;
+	color: $blue;
+	text-decoration: none;
+	outline: none;
+}
+a:hover {
+	text-decoration: underline;
+	&.no-hover { text-decoration: none; }
+}
+table {
+	width: 100%;
+	border-spacing: 0;
+	@include box-sizing;
+	th, td {
+		padding: 5px;
+		@include box-sizing;
+		&:last-child { padding-right: 8px; }
+	}
+	tr {
+		&:last-child { border-bottom: none; }
+	}
+}
+.content-card-container .padding-left-right {
+	table th,
+	table td {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+.blockquote {
+	margin: 20px 0 20px 0px;
+	padding: 0px 0px 0 36px;
+	font-weight: normal;
+	font-size: 1.15em;
+	line-height: 1.8em;
+	border: none;
+	background: image-url('quote.png') 0 0 no-repeat;
+	word-wrap: break-word;
+
+	&.pdf {
+		background: image-url('pdf_icon.png') 0 2px no-repeat;
+		background-size: 24px 24px;
+	}
+}
+
+.word-wrap{
+	word-wrap: break-word;
+}
+
+/* 2. COMMON CLASSES ------------------------------------------------------------- */
+/* Position */
+.relative { position: relative; }
+
+/* Display */
+.hidden { display: none; }
+.display-block { display: block; }
+.inline { display: inline-block; }
+.inline-list > li {
+	display: inline-block;
+	vertical-align: top;
+	@include box-sizing;
+}
+
+/* Format */
+.right { float: right; display: inline-block; }
+.center { display: block; margin: 0 auto; }
+.left { float: left; display: inline-block; }
+.clear { clear: both; }
+.clear-float { width: auto; overflow: hidden; } /* Use next to a floated item */
+
+/* Typography */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.truncate-text {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.uppercase { text-transform: uppercase; }
+
+/* Design */
+.border-radius { @include border-radius; }
+.round-top-corners, .border-radius-top { @include border-radius(4px 4px 0 0); }
+.box-shadow { @include box-shadow; }
+.padding-top-bottom { padding-top: 20px; padding-bottom: 20px; }
+.padding-left-right {
+	padding-left: 20px;
+	padding-right: 20px;
+	&.default {
+		padding-left: 0;
+	}
+}
+
+.border-top-purple { border-top: 1px solid $lightGray; }
+.border-bottom-purple { border-bottom: 1px solid $lightGray; }
+.border-top-black { border-top: 1px solid $lightGray; }
+.border-bottom-black { border-bottom: 1px solid $lightGray; }
+
+.mobile:not(.web), .tablet:not(.web) { display: none !important; }
+
+// /* For modern browsers */
+.clearfix:before,
+.clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+/* For IE 6/7 (trigger hasLayout) */
+.clearfix { zoom: 1; }
+
+/* 3. FORMS ------------------------------------------------------------- */
+
+form { margin: 0; padding: 0; }
+
+input[type=text],
+input[type="password"],
+input[type=email],
+input[type=url],
+input[type=number],
+textarea,
+select {
+	margin: 0 0 10px;
+	padding: 7px 10px;
+	color: $black;
+	border: none;
+	outline: none;
+	resize: none;
+	font-size: inherit;
+	text-shadow: none;
+	background: $lightGray;
+	overflow: hidden;
+	@include box-sizing;
+
+	&.bigger {
+		padding: 15px;
+		background: $white;
+		&:focus,
+		&:active {
+			padding: 14px;
+		}
+	}
+
+	&[disabled=disabled],
+	&[disabled=disabled]:hover,
+	&[disabled=disabled]:focus {
+		color: $darkGray;
+		background: $lightGray;
+	}
+	&:focus,
+	&:active {
+		outline: none;
+		color: $black;
+		border: 1px solid $blue;
+		padding: 6px 9px;
+	}
+	&[data-loading=true]:not([data-effeckt-type=slide-left]) { background: $white image-url('circle-loader.gif') 98% center no-repeat !important; }
+	&::-webkit-input-placeholder { color: $slightlyDifferentShadeOfGray; }
+	&:-moz-placeholder { color: $slightlyDifferentShadeOfGray; } /* Firefox 18- */
+	&::-moz-placeholder { color: $slightlyDifferentShadeOfGray; } /* Firefox 19+ */
+	&:-ms-input-placeholder { color: $slightlyDifferentShadeOfGray; }
+	&.placeholder { color: $slightlyDifferentShadeOfGray; } /* IE */
+}
+textarea:focus { overflow: auto; }
+select { @include box-shadow(none); }
+input[type=checkbox],
+input[type=radio] {
+	&:focus { outline: none; }
+	&:active { outline: none; }
+}
+input[type=button],
+input[type=submit] {
+	margin: 0;
+	color: $white;
+	background: $blue;
+	border: none;
+	@include appearance;
+
+	&:active, &:focus {
+		border: none;
+		outline: none;
+	}
+}
+
+.btn.has_upload {
+	input[type=file] {
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+	}
+}
+
+fieldset {
+	padding: 5px 0;
+	font-size: 12px;
+	&.relative.validate {
+		z-index: 1;
+		padding: 0;
+	}
+	&.relative.chosen-validate {
+		padding: 0;
+		.parsley-error-list { position: relative; }
+		.chosen-container { margin-bottom: 10px; }
+	}
+}
+label.inline,
+label.radio {
+	display: block;
+	padding: 5px 15px 5px 0;
+	input[type=checkbox],
+	input[type=radio] {
+		margin-right: 10px;
+		@extend .left;
+	}
+}
+.checkbox-wrap,
+.radio-wrap {
+	padding: 5px 0;
+
+	.sprite { margin-right: 10px; }
+	input[type=checkbox], input[type=radio] { float: left; }
+	label {
+		padding-left: 10px;
+	}
+	&.two-lines {
+		label {
+			display:block;
+			line-height: 17px;
+			padding-left:62px;
+		}
+	}
+}
+
+/* Simple Form Errors */
+/* 	we seriously need to get rid of simple_form and find a better way to handle error messages
+	because stuff like this is annoying */
+form .control-group.error {
+	margin-top: 22px;
+	.controls {
+		position: relative;
+		z-index: 2;
+	}
+}
+
+.error input,
+input.parsley-error,
+.field_with_errors input {
+	&, &:focus {
+		border: 1px solid $red;
+		padding: 6px 9px;
+	}
+}
+input, textarea {
+	&.parsley-error { margin-top: 20px; }
+}
+input, textarea {
+	&.parsley-success {
+		&, &:focus {
+			border: 1px solid $green;
+			padding: 6px 9px;
+		}
+	}
+}
+.help-inline, .parsley-error-list {
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	right: 0;
+	bottom: 100%;
+	display: block;
+	width: 100%;
+	margin: 0 0 -2px; /* keeps it centered when borders get factored */
+	padding: 3px 5px 5px;
+	background: transparentize($red, 0.5);
+	@include border-radius(4px 4px 0 0);
+	@include box-sizing;
+	@extend .small;
+}
+.parsley-error-list { top: 0; bottom: auto; }
+#designations {
+	margin-top: 20px;
+	#parsley-designation {
+		top: auto;
+		bottom: 100%;
+		@include border-radius;
+	}
+}
+
+// Fallback
+// Apply this style only on WebKit
+// To prevent ugly styles on non-WebKit Browser
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	label.inline,
+	label.radio,
+	.checkbox-wrap label,
+	.radio-wrap label {
+		line-height: 31px;
+	}
+
+	.effeckt-ckbox[type=checkbox],
+	.effeckt-rdio[type=radio] {
+		cursor: pointer;
+		position: relative;
+		display: inline-block;
+		width: 52px;
+		height: 31px;
+		padding: 1px;
+		margin: 0px;
+		background: $gray;
+		@include box-shadow(0px 0px 0px 1px $lightGray inset);
+		@include transition(all .3s ease-out);
+		@include border-radius(15px);
+		@include appearance;
+		@include transform; // Adjust size here
+	}
+
+	.effeckt-ckbox[type=checkbox]:checked,
+	.effeckt-rdio:checked {
+	  @include box-shadow(0px 0px 0px 20px $blue inset);
+	}
+
+	.effeckt-ckbox[type=checkbox]:after,
+	.effeckt-rdio[type=radio]:after {
+		content: '';
+		position: absolute;
+		cursor: pointer;
+		width: 29px;
+		height: 29px;
+		background: $white;
+		@include box-shadow(0px 2px 2px 1px rgba(0, 0, 0, 0.2));
+		@include transition(all 0.1s ease-in .1s);
+		@include border-radius(15px);
+	}
+
+	.effeckt-ckbox[type="checkbox"]:checked:after,
+	.effeckt-rdio[type="radio"]:checked:after {
+		left: 22px;
+	}
+}
+
+
+/* 4. BUTTONS ------------------------------------------------------------- */
+.btn {
+	display: inline-block;
+	cursor: pointer;
+	margin: 0;
+	padding: 7px 14px;
+	font-weight: bold;
+	color: $white;
+	border: none;
+	@include transition;
+	@include border-radius;
+	@include box-sizing;
+
+	&.hidden { display: none; }
+	&.huge { padding: 15px 30px; } /* h2 */
+	&.bigger { padding: 12px 22px; } /* h3 */
+	&:hover {
+		text-decoration: none;
+	}
+	&:focus,
+	&:active {
+		outline: none;
+		border: none;
+	}
+
+	/* Button Colors */
+	&.blue,
+	*[type=submit] {
+		color: $white;
+		background: $blue;
+		&:hover {
+			color: $lightGray;
+			background: transparentize($blue, 0.2);
+		}
+	}
+	&.red {
+		color: $white;
+		background: $red;
+		&:hover {
+			color: $lightGray;
+			background: transparentize($red, 0.2);
+		}
+	}
+	&.green {
+		color: $darkPurple;
+		text-shadow: none;
+		background: $green;
+		&:hover {
+			color: $lightGray;
+			background: transparentize($green, 0.2);
+		}
+	}
+	&.orange {
+		color: $white;
+		background: $orange;
+		&:hover {
+			color: $lightGray;
+			background: transparentize($orange, 0.2);
+		}
+	}
+	&.gray { color: $white; background: $gray; }
+	&.disabled,
+	&[disabled=disabled],
+	&[disabled=disabled]:hover,
+	&[disabled=disabled]:focus {
+		color: $white;
+		padding: 6px 13px;
+		background: $lightPurple;
+		// border: 1px solid $lightPurple;
+	}
+	&.light-gray {
+		color: $purple;
+		text-shadow: none;
+		text-transform: uppercase;
+		border: 2px solid $purple;
+		&:hover {
+			color: $white;
+			background: $purple;
+			text-decoration: none;
+		}
+	}
+	&.no-hover {
+		background: inherit !important;
+	}
+
+	&.dashed {
+		padding: 5px 12px;
+		border: 2px dashed $white;
+		&.gray {
+			color: $gray;
+			background: transparent;
+			border-color: $gray;
+		}
+		&:hover {
+			color: $white;
+			border-color: $white;
+		}
+	}
+	&.popin {
+		@include transition(none);
+	}
+}
+
+/* Button effeckts */
+.effeckt-button { position: relative; @include appearance; }
+.effeckt-button[data-loading] { cursor: default; }
+.effeckt-button .spinner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  margin-top: -8px;
+  margin-left: -8px;
+  opacity: 0;
+  background-image: image-url('circle-loader.gif');
+  background-size: 16px auto;
+}
+.effeckt-button, .effeckt-button .spinner, .effeckt-button .label {
+  @include transition(0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) all);
+}
+.effeckt-button[data-effeckt-type="slide-left"] { overflow: hidden; }
+.effeckt-button[data-effeckt-type="slide-left"] .label { position: relative; }
+.effeckt-button[data-effeckt-type="slide-left"] .spinner { left: 100%; }
+.effeckt-button[data-effeckt-type="slide-left"][data-loading="true"] .label { opacity: 0; left: -100%; }
+.effeckt-button[data-effeckt-type="slide-left"][data-loading="true"] .spinner { opacity: 1; left: 50%; }
+
+
+/* 5. COMPONENTS ------------------------------------------------------------- */
+/* 5.1 Tabs */
+
+.nav-tabs {
+	margin: 0;
+	border-bottom: none;
+	a {
+		display: block;
+		padding: 10px 15px;
+		color: lighten($purple, 50%);
+		@include transition;
+		@extend .uppercase;
+
+		&:hover { text-decoration: none; }
+		h4 { @extend .thin; }
+	}
+	li.active a { color: $purple; h4 { font-weight: 900; } }
+	li:not(.active) a:hover {
+		color: $purple;
+		@include transition;
+	}
+	li:first-child a { border: none; /* padding-left: 0; */ }
+	li.right:first-child { border-right: none; }
+	li.right:last-child { border-left-width: 1px; }
+}
+
+.navbar-inner .nav-tabs {
+	background: $purple;
+	li { background: $purple; }
+	li.active {
+		background: $purple;
+		a { color: $blue; }
+	}
+	li:hover a { color: $blue; }
+	a {
+		padding: 8px 14px;
+		color: $white;
+	}
+}
+
+.tab-menu {
+	margin: 20px 0;
+	li {
+		margin: 0 -25px;
+		a {
+			display: block;
+			padding: 10px 20px;
+			@include border-radius(4px 0 0 4px);
+			&:hover {
+				text-decoration: none;
+				background: transparentize($white, 0.5);
+			}
+		}
+		&.active a {
+			color: $gray;
+			background: $white;
+		}
+	}
+}
+
+.tab-pane {
+    display: none;
+    &.active {
+        display: block;
+    }
+}
+
+/* 5.3 Tooltips */
+/* TIPSY TOOLTIP */
+.help-tip, .html-help-tip { cursor: help; }
+.tipsy { font-size: 14px; position: absolute; padding: 5px; }
+.tipsy-inner {
+	max-width: 400px;
+	overflow: hidden;
+	padding: 5px 8px 4px;
+	color: $darkGray;
+	text-align: center;
+	text-shadow: none;
+	background-color: $lightGray;
+	@include box-shadow(0 2px 0 rgba(0,0,0,0.2));
+	@include border-radius;
+	// -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+	// -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+	// box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+
+	table {
+		text-align: left;
+		td, th, th:first-child { padding: 0 5px; }
+	}
+	.two_col .col { width: 49%; }
+	#sector-wrapper { min-width: 320px; }
+}
+
+$arrowSize: 5px;
+
+.arrow:before { content: ''; display: block; }
+.tipsy-arrow, .arrow:before { position: absolute; width: 0; height: 0; line-height: 0; border: $arrowSize dashed $white; }
+
+/* Rules to colour arrows */
+.tipsy-arrow-n, .arrow-n:before, .arrow-n::before { border-bottom-color: $lightGray; }
+.tipsy-arrow-s, .arrow-s:before, .arrow-s::before { border-top-color: $lightGray; }
+.tipsy-arrow-e, .arrow-e:before, .arrow-e::before { border-left-color: $lightGray; }
+.tipsy-arrow-w, .arrow-w:before, .arrow-w::before { border-right-color: $lightGray; }
+
+.arrow.arrow-n:before, .arrow.arrow-n::before, .tipsy-n .tipsy-arrow { top: 0px; left: 50%; margin-left: -5px; border-bottom-style: solid; border-top: none; border-left-color: transparent; border-right-color: transparent; }
+.arrow.arrow-nw:before, .arrow.arrow-nw::before, .tipsy-nw .tipsy-arrow { top: 0; left: 10px; border-bottom-style: solid; border-top: none; border-left-color: transparent; border-right-color: transparent;}
+.arrow.arrow-ne:before, .arrow.arrow-ne::before, .tipsy-ne .tipsy-arrow { top: 0; right: 10px; border-bottom-style: solid; border-top: none;  border-left-color: transparent; border-right-color: transparent;}
+.arrow.arrow-s:before, .arrow.arrow-s::before, .tipsy-s .tipsy-arrow { bottom: 0; left: 50%; margin-left: -5px; border-top-style: solid; border-bottom: none;  border-left-color: transparent; border-right-color: transparent; }
+.arrow.arrow-sw:before, .arrow.arrow-sw::before, .tipsy-sw .tipsy-arrow { bottom: 0; left: 10px; border-top-style: solid; border-bottom: none;  border-left-color: transparent; border-right-color: transparent; }
+.arrow.arrow-se:before, .arrow.arrow-se::before, .tipsy-se .tipsy-arrow { bottom: 0; right: 10px; border-top-style: solid; border-bottom: none; border-left-color: transparent; border-right-color: transparent; }
+.arrow.arrow-e:before, .arrow.arrow-e::before, .tipsy-e .tipsy-arrow { right: 0; top: 50%; margin-top: -5px; border-left-style: solid; border-right: none; border-top-color: transparent; border-bottom-color: transparent; }
+.arrow.arrow-w:before, .arrow.arrow-w::before, .tipsy-w .tipsy-arrow { left: 0; top: 50%; margin-top: -5px; border-right-style: solid; border-left: none; border-top-color: transparent; border-bottom-color: transparent; }
+
+.arrow.arrow-n, .arrow.arrow-nw, .arrow.arrow-ne { margin-top: $arrowSize; &:before, &::before { top: -$arrowSize; } }
+.arrow.arrow-s, .arrow.arrow-sw, .arrow.arrow-se { margin-bottom: $arrowSize; &:before, &::before { bottom: -$arrowSize; } }
+.arrow.arrow-e { margin-right: $arrowSize; &:before, &::before { right: -$arrowSize; } }
+.arrow.arrow-w { margin-left: $arrowSize; &:before, &::before { left: -$arrowSize; } }
+
+/* POP OVERS */
+.popover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	max-width: 276px;
+	padding: 1px;
+	color: $gray;
+	text-align: left;
+	white-space: normal;
+	background-color: $white;
+	border: 1px solid #ccc;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	@include box-shadow(0 5px 10px transparentize($black, 0.8));
+	@include border-radius;
+	@include background-clip;
+
+	.arrow {
+		border-width: 11px;
+	}
+	.arrow,
+	.arrow:after {
+		display: none;
+		position: absolute;
+		display: block;
+		width: 0;
+		height: 0;
+		border-color: transparent;
+		border-style: solid;
+	}
+}
+.popover.right {
+	margin-left: 15px;
+	.arrow {
+		top: 50%;
+		left: -11px;
+		margin-top: -11px;
+		border-right-color: $lightGray;
+		border-left-width: 0;
+
+		&:before {
+			border: 0;
+		}
+	}
+}
+.popover.left {
+	margin-left: -15px;
+	.arrow {
+		top: 50%;
+		right: -11px;
+		margin-top: -11px;
+		border-left-color: $lightGray;
+		border-right-width: 0;
+	}
+}
+.popover.bottom .arrow {
+	border-bottom-color: #edeff1;
+	margin-right: -9px;
+	top: -9px;
+}
+.popover.top .arrow {
+	border-top-color: #edeff1;
+	bottom: -9px;
+	margin-left: -9px;
+}
+.popover-title {
+	color: $gray;
+	padding: 8px 14px;
+	margin: 0;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 18px;
+	background-color: $lightGray;
+	border-bottom: 1px solid $lightGray;
+	@include border-radius(4px 4px 0 0);
+	&:empty { display: none; }
+}
+.popover-content {
+	padding: 10px 20px;
+}
+
+/* 5.4 Dropdown Menu */
+.dropdown {
+	&.open .dropdown-menu { display: block; }
+	&.right .dropdown-toggle { border-left: 1px solid $purple; }
+}
+.dropdown-menu {
+    position: absolute;
+    right: -5px;
+    top: 99%;
+    display: none;
+    width: 160px;
+    padding: 5px 0;
+    margin: 11px -3px 0 0;
+    font-style: normal;
+	color: $gray;
+	text-align: center;
+	text-shadow: none;
+    background: $white;
+    @include border-radius;
+    @include box-shadow;
+
+    .divider { margin: 9px 1px; border-top: 1px solid $lightGray; }
+    a {
+        display: block;
+        width: 100%;
+        padding: 3px 0;
+        color: $black;
+        text-align: center;
+        &:not(.no-hover):hover {
+            color: $white;
+            background: $blue;
+            text-decoration: none;
+            // text-shadow: 0 1px 1px rgba(0,0,0,0.35);
+        }
+    }
+    .small-close { display: none; } /* Not sure why we need this close - we don't have it on any other dropdown */
+    .blue a {
+		display: inline-block;
+		width: auto;
+		&:hover { background: none; }
+	}
+    &:after {
+        content: '';
+        display: inline-block;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 6px solid $white;
+        position: absolute;
+        top: -6px;
+        right: 13px;
+    }
+	.position-info {
+		color: $gray;
+		font-weight: bold;
+		border-bottom: 1px solid #ccc;
+		.blue a {
+			color: $blue;
+			&:hover {
+				color: $blue;
+			}
+		}
+		a:hover{
+			color: $white;
+		}
+	}
+}
+.dropdown-menu.position {
+	width: 185px;
+	margin-left: -45px;
+	.ticker-details {
+		margin-top: 5px;
+		color: $gray;
+		@extend .text-center;
+		@extend .small;
+	}
+	.position-form {
+		padding: 10px 10px 5px;
+		a {
+			color: $red;
+			text-align: center;
+			&:hover{
+				text-decoration: none;
+			}
+		}
+	}
+	input[type=text] {
+		@extend .small;
+	}
+}
+.heading .dropdown {
+	// margin: 0 -20px;
+
+	.dropdown-toggle {
+		display: block;
+		margin: -10px -20px;
+		background: $lightPurple;
+		border-left: 1px solid $purple;
+		.dropdown-text,
+		.dropdown-icon {
+			display: inline-block;
+			height: 40px;
+			padding: 0 5px 0 8px;
+			line-height: 40px;
+		}
+		.dropdown-text {
+			padding: 0 12px 0 15px;
+			color: $white;
+		}
+		.dropdown-icon {
+			border-left: 1px solid $black;
+			.icon-arrow-down {
+				height: 6px;
+			}
+		}
+	}
+}
+
+/* 5.5 Ticker */
+.ticker-token {
+	position: relative;
+	display: inline-block;
+	line-height: 22px !important;
+	@include border-radius;
+
+	&.setup { background-color: $blue; }
+	.ticker-details { margin-top: 0; }
+	i {
+		float: right;
+		width: 10px;
+		height: 6px;
+	}
+	& > a {
+		display: inline-block !important;
+		font-style: normal !important;
+		font-size: 14px !important;
+		padding: 0 5px;
+		color: $white;
+		background-color: $blue;
+		@include border-radius(3px);
+		@extend .text-center;
+		@extend .uppercase;
+		@extend .bold;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	select {
+		width: 80px;
+		@extend .small;
+	}
+	.return-form, .timing-form { width:163px; }
+
+	.dropdown-toggle {
+		width: 15px;
+		display: inline-block;
+		padding: 0px 2px 0px 5px;
+
+		.icon-arrow-down { margin: 0 auto; }
+	}
+	.ticker-popin { display: none; }
+}
+.ticker-popin.hvst-popin {
+	text-align: center;
+
+	li {
+		line-height: 40px;
+
+		&, a { padding: 0; color: $white; text-decoration: none; }
+		&.divider { border-bottom: 1px solid transparentize($white, 0.5); }
+		&:hover {
+			background: $gray;
+			.blue a {
+				color: $white;
+				@extend .bold;
+			}
+		}
+		.blue a { @extend .uppercase; }
+		&:first-child { @include border-radius(4px 4px 0 0); }
+		&:last-child { @include border-radius(0 0 4px 4px); }
+	}
+}
+.ticker-token.open .dropdown-menu,
+.ticker-token.open .dropdown-menu a {
+	// display: block;
+	font-size: 14px !important;
+	font-style: normal !important;
+	font-weight: normal !important;
+}
+
+
+/* 5.6 Avatar */
+.avatar-block {
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	max-width: auto;
+	max-height: 100%;
+	img {
+		width: auto;
+		max-width: 50px;
+		@include border-radius;
+
+		&.false { width: 100%; }
+	}
+	&.female { height: 50px; background: image-url('female_avatars/user.jpg'); background-size: 100% auto; img { display: none; } }
+	&.male { height: 50px; background: image-url('male_avatars/user.jpg'); background-size: 100% auto; img { display: none; } }
+	&.small {
+		width: 30px;
+		img { width: 30px; max-width: 30px; }
+		&.female, &.male { height: 30px; }
+	}
+	&.large {
+		width: 140px;
+		img { width: 140px; max-width: 140px;}
+		&.female, &.male { height: 140px; }
+	}
+	&.team-member { width: 200px; img { width: 200px; max-width: 200px; } }
+	& > a:not(.pop-trigger), .over {
+		position: absolute;
+		z-index: 1;
+		bottom: 0;
+		display: block;
+		width: 100%;
+		font-weight: 900;
+		font-size: 0.7em;
+		line-height: 1.2em;
+		text-align: center;
+		color: $white;
+		background: $blue;
+		-webkit-border-bottom-right-radius: 4px;
+		-webkit-border-bottom-left-radius: 4px;
+		-moz-border-radius-bottomright: 4px;
+		-moz-border-radius-bottomleft: 4px;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+		@include box-sizing;
+		&.text-left { text-align: left; }
+		&.text-right { text-align: right; }
+		&.purple-bg {
+			background: transparentize($purple, 0.35);
+		}
+		&.padding-top-bottom { padding-top: 5px; padding-bottom: 5px; }
+		&.padding-left-right { padding-left: 5px; padding-right: 5px; }
+	}
+}
+
+/* 5.7 Loader */
+.loading-icon {
+	width: 100%;
+	height: 200px;
+	background: image-url('circle-loader.gif') center center no-repeat;
+}
+#feed .loading-icon { position: absolute; } /* This is so elements will load over it */
+.darkpurple-bg .loading-icon { background: image-url('harvest-loading-icon-activity.gif') center center no-repeat; }
+*[data-loading=true]:not([data-effeckt-type=slide-left]) {
+	position: relative;
+	&:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		min-height: 16px;
+		background: image-url('circle-loader.gif') center center no-repeat !important;
+	}
+}
+#progress {
+	position: absolute;
+	top: 100%;
+	// display: none;
+	width: 100%;
+	background: $black;
+	.bar {
+		width: 0;
+		height: 2px;
+		background: $blue;
+		@include transition;
+	}
+}
+
+/* 5.8 Slider */
+/*
+ * 	Core Owl Carousel CSS File
+ *	v1.22
+ */
+
+/* clearfix */
+.owl-carousel .owl-wrapper:after {
+	content: ".";
+	display: block;
+	// clear: both;
+	// visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+/* display none until init */
+.owl-carousel{
+	display: none;
+	position: relative;
+	width: 100%;
+	-ms-touch-action: pan-y;
+}
+.owl-carousel .owl-wrapper{
+	display: none;
+	position: relative;
+	@include transform(translate3d(0px, 0px, 0px));
+	-webkit-perspective: 1000;
+}
+.owl-carousel .owl-wrapper-outer{
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	@include box-shadow;
+}
+.owl-carousel .owl-wrapper-outer.autoHeight{
+	@include transition(height 500ms ease-in-out);
+}
+
+.owl-carousel .owl-item{
+	@extend .left;
+}
+.owl-controls .owl-page,
+.owl-controls .owl-buttons div {
+	cursor: pointer;
+}
+.owl-controls {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	@include user-select;
+}
+
+/* mouse grab icon */
+.grabbing {
+    cursor: image-url('grabbing.png') 8 8, move;
+}
+
+/* fix */
+.owl-carousel .owl-wrapper,
+.owl-carousel .owl-item{
+	@include backface-visibility;
+}
+
+/*
+* 	Owl Carousel Owl Demo Theme
+*	v1.22
+*/
+.owl-theme .owl-controls{
+	position: relative;
+	margin-top: -45px;
+	text-align: center;
+}
+
+/* Styling Next and Prev buttons */
+.owl-theme .owl-controls .owl-buttons div {
+	color: $white;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+	margin: 5px;
+	padding: 3px 10px;
+	font-size: 12px;
+	background: $blue;
+	@include border-radius(30px);
+}
+/* Clickable class fix problem with hover on touch devices */
+/* Use it for non-touch hover action */
+.owl-theme .owl-controls.clickable .owl-buttons div:hover{
+	text-decoration: none;
+	background: transparentize($blue, 0.1);
+}
+
+/* Styling Pagination*/
+.owl-theme .owl-controls .owl-page {
+	display: inline-block;
+	zoom: 1;
+	*display: inline; /*IE7 life-saver */
+}
+.owl-theme .owl-controls .owl-page span {
+	display: block;
+	width: 8px;
+	height: 8px;
+	margin: 5px 7px;
+	background: transparentize($white, 0.65);
+	@include border-radius;
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span {
+	background: $blue;
+}
+
+/* 5.10 Alerts/Dialogues/Messages */
+
+.flash-notice {
+	margin: -80px 0 80px;
+	padding: 20px 0;
+}
+
+/* 6.1 Horizontal Bar */
+.horizontal-bar {
+  margin: 10px 0 20px;
+  color: $gray;
+  overflow: hidden;
+  text-align: center;
+  display: block;
+  width: 100%;
+
+  &:before, &:after {
+	  background-color: $gray;
+	  content: '';
+	  display: inline-block;
+	  height: 1px;
+	  position: relative;
+	  vertical-align: middle;
+	  width: 50%;
+  }
+  &:before {
+	  right: 1em;
+	  margin-left: -50%;
+  }
+  &:after {
+	  left: 1em;
+	  margin-right: -50%;
+  }
+}

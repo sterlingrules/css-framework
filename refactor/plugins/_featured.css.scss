@@ -1,0 +1,173 @@
+#featured-overflow {
+    position: relative;
+    min-height: 74px;
+    margin: 15px 0 20px;
+    .owl-carousel .owl-wrapper-outer { @include box-shadow(none); }
+}
+#featured-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200%;
+    text-align: right;
+    background: transparentize($purple, 0.5);
+
+    .empty-block { display: block; width: 74px; height: 74px; background: transparentize($black, 0.5); }
+    
+    #featured-investors {
+        width: 370px;
+        img {
+            width: auto; height: 74px;
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            filter: grayscale(100%);
+            opacity: 0.5;
+            @include transition(all 1s ease);
+        }
+        .colorize img {
+            -webkit-filter: grayscale(0);
+            -moz-filter: grayscale(0);
+            filter: grayscale(0);
+            opacity: 1.0;
+        }
+    }
+    #featured-content {
+        width: 25%;
+        text-align: left;
+
+        h1 {
+            line-height: 1.15em;
+        }
+        .featured-item {
+            padding: 5px 20px 0 25px;
+            text-transform: capitalize;
+            @include box-sizing;
+        }
+    }
+}
+#featured-title {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 240px;
+    height: 74px;
+    margin: 0 -10px;
+    padding: 0 20px;
+    text-align: left;
+    text-shadow: none;
+    vertical-align: middle;
+    background: image-url('featured_highlight.png') center center no-repeat;
+    @include box-sizing;
+    
+    h3 {
+        position: absolute;
+        bottom: 100%;
+        width: 100%;
+        margin: 0 -20px;
+        line-height: 0.75em;
+    }
+    .featured-item {
+        width: 100%;
+        height: 74px;
+        display: table;
+        .name {
+            display: table-cell; 
+            vertical-align: middle;
+            @include box-sizing;
+
+            a { color: $black; }
+            .white-text {
+                @extend .small;
+                a { color: $white; }
+            }
+        }
+    }
+}
+
+/* 1.1 Featured Content */
+.feed-heading {
+    position: relative;
+    // min-height: 90px; /* breaking search results header with filter dropdown */
+    margin-bottom: 20px;
+    @include box-sizing;
+    .content-card-container { width: 100%; }
+}
+.avatar-card {
+    min-height: 90px;
+    img {
+        width: 90px;
+        height: auto;
+    }
+    .post-info {
+        padding: 5px 0;
+        margin-left: 100px;
+    }
+}
+/* Slider Pagination */
+#featured {
+    // overflow: hidden;
+    // height: 90px;
+    .post-info { width: 80%; }
+    .featured-item {
+        display: block;
+        height: 74px;
+    }
+    .user-icon { background: image-url('featured_large.png') 0 0 no-repeat; }
+    .owl-controls {
+        pointer-events: none;
+        position: relative;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: 0;
+        width: 100%;
+        .owl-pagination {
+            visibility: hidden;
+            pointer-events: auto;
+            position: absolute;
+            bottom: 8px;
+            right: 80px;
+            width: 100%;
+            text-align: right;
+
+            .owl-page {
+                span {
+                    @include transition(all 1s ease);
+                    @include border-radius(0);
+                }
+                &.active span {
+                    background: $orange;
+                    @include transform(scale(1.5));
+                }
+            }
+        }
+        .owl-buttons {
+            pointer-events: auto;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 0;
+            float: right;
+            .owl-prev,
+            .owl-next {
+                height: 28px;
+                width: 28px;
+                margin: 0 1px;
+                padding: 0;
+                font-weight: 900;
+                line-height: 26px;
+                text-align: center;
+                text-shadow: none;
+                background: $blue; // ie8
+                background: transparentize($white, 0.90);
+                @include border-radius(4px);
+
+                &:hover {
+                    background: $blue; // ie8
+                    background: transparentize($white, 0.45);
+                }
+            }
+            .owl-next { margin-left: 1px; }
+        }
+    }
+}

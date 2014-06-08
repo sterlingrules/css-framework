@@ -1,0 +1,389 @@
+/*
+	1. GENERAL
+	2. WELCOME
+	3. TEAM
+	4. CAREERS
+*/
+
+/* 1. GENERAL ------------------------------------------------------------- */
+#pages-index,
+*[id*='info-'],
+[id^="info-"],
+*[id*='sessions-'],
+[id^="sessions-"],
+*[id*='devise-'],
+[id^="devise-"],
+*[id*='passwords-'],
+[id^="passwords-"],
+#pages-password_reset_message {
+	#wrapper { min-height: 100%; }
+	.wrapper {
+		//width: 991px;
+		height: 100%;
+		padding-bottom: 50px; /* must be same height as the footer */
+	}
+	#footer {
+		position: relative;
+		margin-top: -50px; /* negative value of footer height */
+		height: 50px;
+		clear: both;
+	} 
+}
+#info-closing .col:first-child {
+	width: 40%;
+	margin-right: 20px;
+}
+#info-closing .col:last-child {
+	width: 56.5%;
+	img { width: 100%; height: auto; }
+}
+#pages-index,
+#welcome-index,
+#welcome-bg {
+	background-attachment: fixed;
+	background: $lightPurple image-url('harvest-bg.jpg') 0 0 no-repeat;
+    background-size: 100% auto;
+	.wrapper {
+		padding-bottom: 38px;
+		.small { text-shadow: none; }
+		&.padding-top-bottom {
+			padding: 70px 0;
+		}
+	}
+}
+#content-show {
+	position: static;
+}
+#shares-show {
+	position: static;
+	.row { top: auto; padding: 0; }
+	#content_fullscreen {
+		margin: 100px 0;
+		.content-card-container.left {
+			top: 89px;
+		}
+	}
+	footer, #footer {
+		height: 80px;
+		margin-top: -80px;
+		clear: both;
+		@extend .wrapper;
+	}
+}
+#pages-index {
+	.home-footer-wrapper {
+		position: absolute;
+		bottom: 0;
+		footer, #footer { @extend .wrapper; }
+	}
+}
+.home-footer-wrapper ul { line-height: 20px; }
+
+
+/* 2. WELCOME ------------------------------------------------------------- */
+#welcome-index {
+	.row {
+		min-height: 100%;
+		padding-bottom: 0;
+	}
+	.fullview {
+		overflow: auto;
+		height: 100%;
+	}
+	.wrapper {
+		/*width: 960px;*/
+		padding-bottom: 0px;
+	}
+	footer, #footer {
+		margin: 0;
+		border-top: 2px solid $blue;
+		background-position: center 30px;
+		background: $lightPurple;
+		.header { margin-bottom: 10px; }
+		ul { vertical-align: top; }
+	}
+	.in-the-news {
+		width: 100%;
+		color: $white;
+		text-align: center;
+	}
+	.white-trans {
+		width: 100%;
+		text-align: center;
+		background: transparent image-url('news/white-trans.png');
+		background: transparentize($white, 0.3);
+	}
+}
+
+#welcome-bg {
+	position: relative;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 92%;
+	min-height: 782px;
+	padding-bottom: 171px;
+	margin-bottom: -79px;
+	@include box-sizing;
+}
+.login-box {
+	.inline-list li:first-child { padding-left: 5px; }
+	.inline-list li:last-child { padding-right: 5px; }
+}
+.linkedin-signup {
+	padding: 15px 0;
+	background: $linkedin;
+}
+
+
+/* 3. TEAM ------------------------------------------------------------- */
+.team {
+	margin-right: -15px;
+	li {
+		margin: 0 30px 30px 0;
+	}
+}
+
+/* 4. CAREERS ------------------------------------------------------------- */
+.map_container {
+	margin: 5px 20px 0 0;
+}
+
+/* 5. LEARN MORE ------------------------------------------------------------- */
+#sub-header {
+	position: fixed;
+	top: 68px;
+	width: 100%;
+	z-index: 1;
+	background: transparent image-url('learn_more/dark-tran.png');
+	font-size: 1.1em;
+	padding:2px;
+	a { font-weight: 900; color: $white; }
+	ul { 
+		li{ padding: 3px 10px 3px 10px; }
+	}
+}
+#info-learn_more {
+	.row {
+		min-height: 100%;
+		padding-bottom: 0;
+	}
+	.fullview {
+		overflow: auto;
+		height: 100%;
+	}
+	.wrapper {
+		top: 100px;
+		/*width: 960px;*/
+	}
+	footer, #footer {
+		border-top: 2px solid $blue;
+		background-position: center 30px;
+		margin-top: 0px;
+		height: auto;
+		.header { margin-bottom: 10px; }
+	}
+	
+}
+.dark-gray-bg { background: $darkGray; background-color: $darkGray; }
+.line-o-people {
+	width: 100%;
+	height: 62px;
+	background: image-url('people-bg.jpg') center center;
+}
+.pre-harvest {
+	width: 100%;
+	height: 363px;
+	background: image-url('learn_more/pre-harvest.png') center center no-repeat;
+}
+.post-harvest {
+	width: 100%;
+	height: 363px;
+	background: image-url('learn_more/post-harvest.png') center center no-repeat;
+}
+.the-what {
+	h1 { color: $blue; }
+	.connect {
+		padding-left:65px;
+		background: image-url('learn_more/connect-bg.png') 0px 8px no-repeat;
+	}
+	.share {
+		padding-left:65px;
+		background: image-url('learn_more/share-bg.png') 10px 8px no-repeat;
+	}
+	.grow {
+		padding-left:65px;
+		background: image-url('learn_more/grow-bg.png') 2px 8px no-repeat;
+	}
+}
+.home-about {
+	h1 { color: $white; }
+	.connect {
+		padding-left:65px;
+		background: image-url('for_students/connect.png') 0px 8px no-repeat;
+	}
+	.share {
+		padding-left:65px;
+		background: image-url('for_students/share.png') 10px 8px no-repeat;
+	}
+	.grow {
+		padding-left:65px;
+		background: image-url('for_students/grow.png') 2px 8px no-repeat;
+	}
+}
+.harvest-u-bg{
+	width: 100%;
+	height: 448px;
+	background: image-url('learn_more/harvest-u-bg.jpg') center center;
+	a { color:$white; font-weight:900;}
+	p {
+		top: 275px;
+		position: relative;
+		color: $black;
+		font-size:1.2em;
+		line-height: 1.2em;
+	}
+}
+.compliance-email{
+	width: 410px;
+	height: 310px;
+	background: image-url('learn_more/compliance-email.jpg') center center no-repeat;
+}
+.features {
+	display: inline-block;
+	width: 114px;
+	height: 78px;
+	background: image-url('features-sprite.png') 0 0 no-repeat;
+	background-size: 114px 234px;
+
+	&.control { background-position: 0 0; }
+	&.reach { background-position: 0 -78px; }
+	&.manage { background-position: 0 -156px; }
+}
+/* 6. FOR PROFESSIONALS ------------------------------------------------------------- */
+
+#info-for_professionals {
+
+	.promo-box {
+		border-top: 12px solid $blue;
+		padding:20px;
+	}
+	
+	.basic-list {
+		ul {
+			list-style-type: disc;
+			margin: 20px;
+			li { padding: 10px; list-style: inherit; }
+		}
+	}
+	.basic-order {
+		ol {
+			list-style-type: decimal;
+			margin: 20px;
+			li { padding: 10px; list-style: inherit; }
+		}
+	}
+	.stroke { border: 1px solid $white; }
+	footer, #footer {
+		border-top: 2px solid $blue;
+		background-position: center 30px;
+		margin-top: 0px;
+		height: auto;
+		.header { margin-bottom: 10px; }
+	}
+
+}
+
+#connected-networks {
+	margin-top: -2px;
+	li {
+		margin: 0 5px;
+	}
+}
+/* 5. FOR STUDENTS ------------------------------------------------------------- */
+#sub-header {
+	position: fixed;
+	top: 70px;
+	width: 100%;
+	z-index: 1;
+	background: transparent image-url('learn_more/dark-tran.png');
+	font-size: 1.1em;
+	padding:2px;
+	a { font-weight: 900; color: $white; }
+	ul { 
+		li{ padding: 3px 10px 3px 10px; }
+	}
+}
+#info-for_students {
+	.row {
+		min-height: 100%;
+		padding-bottom: 0;
+	}
+	.fullview {
+		overflow: auto;
+		height: 100%;
+	}
+	footer, #footer {
+		border-top: 2px solid $blue;
+		background-position: center 30px;
+		margin-top: 0px;
+		height: auto;
+		.header { margin-bottom: 10px; }
+	}
+	.dark-gray-bg { background: $darkGray; background-color: $darkGray; }
+	.harvest-u-logo {
+		padding-left: 220px;
+		background: image-url('for_students/harvest-u.png') no-repeat;
+		overflow: hidden;
+		height: 325px;
+		.huge { line-height: 1em; }
+		h1 { padding-top: 47px; }
+	}
+	.harvest-u-background {
+		width: 100%;
+		height: 400px;
+		background: image-url('for_students/students.jpg') center center;
+		.colossal { font-size: 4em; }
+	}
+	.promo-band {
+		height: 60px;
+		margin-right: -20px;
+		margin-left: -20px;
+		background: image-url('for_students/black-trans.png');
+		img { padding-right: 10px; }
+		h1 { padding-top: 5px; }
+	}
+	.fb-like { position: absolute; top: 40px; right: 40px; }
+}
+/* 6. HOW-TO GUIDE ------------------------------------------------------------- */
+
+.how-to-guide {
+	h3 { 
+		a { font-weight: bold; }
+	}
+	.toc {
+		ul {
+			list-style-type: disc;
+			padding: 3px 10px 20px 20px;
+			li { 
+				list-style-type: disc;
+				padding: 3px 10px 3px 10px;
+			}
+		}
+		ol {
+			list-style-type: decimal;
+			padding: 3px 10px 20px 20px;
+			li { 
+				list-style-type: decimal;
+				padding: 3px 10px 3px 10px;
+			}
+		}
+	}
+	#footer {
+		margin: 0;
+		border-top: 2px solid #2398ff;
+		background-position: center 30px;
+		height: auto;
+	}
+}

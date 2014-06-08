@@ -1,0 +1,101 @@
+/* style */
+@mixin border-radius($settings: 4px) {
+	-webkit-border-radius: $settings;
+	-moz-border-radius: $settings;
+	-ms-border-radius: $settings;
+	-o-border-radius: $settings;
+	border-radius: $settings;
+}
+@mixin box-shadow($settings...) {
+	@if length($settings) == 0 {
+		$settings: 0 2px 2px rgba(0,0,0,0.35);
+	}
+	-webkit-box-shadow: $settings;
+	-moz-box-shadow: $settings;
+	-ms-box-shadow: $settings;
+	-o-box-shadow: $settings;
+	box-shadow: $settings;
+}
+@mixin box-sizing($settings: border-box) {
+    -webkit-box-sizing: $settings;
+    -moz-box-sizing: $settings;
+    -ms-box-sizing: $settings;
+    -o-box-sizing: $settings;
+    box-sizing: $settings;
+}
+
+/* display */
+@mixin background-clip($settings: padding-box) {
+	-webkit-background-clip: $settings;
+	-moz-background-clip: $settings;
+	background-clip: $settings;
+}
+@mixin appearance($settings: none) {
+	-webkit-appearance: $settings;
+	-moz-appearance: $settings;
+	appearance: $settings;
+}
+@mixin backface-visibility($settings: hidden) {
+	-webkit-backface-visibility: $settings;
+	-moz-backface-visibility: $settings;
+	-ms-backface-visibility: $settings;
+}
+@mixin user-select($settings: none) {
+	-webkit-user-select: $settings;
+	-khtml-user-select: $settings;
+	-moz-user-select: $settings;
+	-ms-user-select: $settings;
+	user-select: $settings;
+}
+
+/* Format */
+@mixin text-size-adjust($settings: none) {
+	-webkit-text-size-adjust: $settings;
+	-moz-text-size-adjust: $settings;
+	-ms-text-size-adjust: $settings;
+	-o-text-size-adjust: $settings;
+	text-size-adjust: $settings;
+}
+@mixin column-count($settings: 3) {
+	-webkit-column-count: $settings;
+	-moz-column-count: $settings;
+}
+@mixin column-gap($settings: 20px) {
+	-webkit-column-gap : $settings;
+    -moz-column-gap: $settings;
+}
+
+/* Animate */
+@mixin animation($settings: none) {
+	-webkit-animation: $settings;
+	-moz-animation: $settings;
+	animation: $settings;
+}
+@mixin animate($name, $duration) {
+	-webkit-animation-name: $name;
+	-moz-animation-name: $name;
+	-o-animation-name: $name;
+	animation-name: $name;
+	
+	-webkit-animation-duration: $duration;
+	-moz-animation-duration: $duration;
+	-o-animation-duration: $duration;
+	animation-duration: $duration;
+
+	-webkit-animation-fill-mode: both;
+	-moz-animation-fill-mode: both;
+	-o-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+@mixin transform($settings: scale(1.0)) {
+	-webkit-transform: $settings;
+	-ms-transform: $settings;
+	transform: $settings;
+}
+@mixin transition($settings: all 0.5s ease) {
+    -webkit-transition: $settings;
+    -moz-transition: $settings;
+    -ms-transition: $settings;
+    -o-transition: $settings;
+    transition: $settings;
+}

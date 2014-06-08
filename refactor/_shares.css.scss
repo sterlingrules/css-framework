@@ -1,0 +1,20 @@
+.social-loader {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    display: table;
+    width: 100%;
+    height: 100%;
+
+    h1 {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      color: #f2f2f0;
+    }
+}
+
+.social-loader.twitter { background: #2fc2ef image-url('circle-loader.gif') center 30% no-repeat; }
+.social-loader.facebook { background: #3b5998 image-url('circle-loader.gif') center 30% no-repeat; }
+.social-loader.linkedin { background: #0d7db7 image-url('circle-loader.gif') center 30% no-repeat; }

@@ -1,0 +1,47 @@
+.hvst-toggle {
+	text-align: center;
+	font-size: 11px;
+}
+.hvst-toggle-bg {
+	position: relative;
+	display: inline-block;
+	margin: 10px 0 10px;
+	padding: 2px 11px 0;
+	line-height: 100%;
+	color: $purple;
+	border: 1px $purple solid;
+	@include border-radius(4px);
+
+	a {
+		position: relative;
+		z-index: 1;
+		display: inline-block;
+		overflow: auto;
+		width: auto;
+		padding: 4px 20px;
+		color: $purple;
+		text-transform: uppercase;
+		@include transition;
+		
+		h4 { @extend .thin; }
+		&.big, h4 { line-height: inherit; }
+
+		&.hvst-toggle-active {
+			color: $white;
+			@extend .bold;
+
+			h4 { @extend .bold; }
+		}
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+.hvst-seeker {
+	position: absolute;
+	display: block;
+	background: $purple;
+	padding: 0 10px;
+	@include border-radius(4px);
+}

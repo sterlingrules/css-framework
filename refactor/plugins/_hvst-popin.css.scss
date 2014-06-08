@@ -1,0 +1,89 @@
+.hvst-popin {
+	position: absolute;
+	z-index: 2014;
+	display: none;
+	max-width: 270px;
+	background: $blue;
+	@include border-radius;
+	@include box-sizing;
+
+	a[rel=modal], a[rel=fullscreen] { opacity: 1.0; }
+
+	&.popin {
+		display: block;
+		opacity: 1.0;
+		-webkit-animation: popin 300ms ease-out 0s;
+		-moz-animation: popin 200ms ease-out 0s;
+		animation: popin 200ms ease-out 0s;
+	}
+	&.popout {
+		display: block;
+		opacity: 0;
+		-webkit-animation: popout 200ms ease-in 0s;
+		-moz-animation: popout 200ms ease-in 0s;
+		animation: popout 200ms ease-in 0s;
+	}
+
+	/* Themes */
+	&.links-theme {
+		li {
+			border-bottom: 1px solid transparentize($white, 0.6);
+			&:first-child { @include border-radius(4px 4px 0 0); }
+			&:last-child { border: none; @include border-radius(0 0 4px 4px); }
+			&:hover {
+				color: $white;
+				background: $orange;
+			}
+		}
+	}
+}
+a[data-popin] {
+	position: relative;
+
+	&.popin {
+		opacity: 1.0;
+		-webkit-animation: popin 200ms ease-in 0s;
+		-moz-animation: popin 200ms ease-in 0s;
+		animation: popin 200ms ease-in 0s;
+	}
+	&.popout {
+		opacity: 0;
+		-webkit-animation: popout 200ms ease-in 0s;
+		-moz-animation: popout 200ms ease-in 0s;
+		animation: popout 200ms ease-in 0s;
+	}
+}
+
+// PopIn
+@-webkit-keyframes popin {
+	0% { opacity: 0; -webkit-transform: scale(0); }
+	90% { opacity: 1.0; -webkit-transform: scale(1.1); }
+	100% { -webkit-transform: scale(1); }
+}
+@-moz-keyframes popin {
+	0% { opacity: 0; -moz-transform: scale(0); }
+	90% { opacity: 1.0; -moz-transform: scale(1.1); }
+	100% { -moz-transform: scale(1); }
+}
+@keyframes popin {
+	0% { opacity: 0; transform: scale(0); }
+	90% { opacity: 1.0; transform: scale(1.1); }
+	100% { transform: scale(1); }
+}
+
+// PopOut
+@-webkit-keyframes popout {
+	0% { opacity: 1.0; -webkit-transform: scale(1); }
+	10% { -webkit-transform: scale(1.1); }
+	100% { opacity: 0; -webkit-transform: scale(0); }
+}
+@-moz-keyframes popout {
+	0% { opacity: 1.0; -moz-transform: scale(1); }
+	10% { -moz-transform: scale(1.1); }
+	100% { opacity: 0; -moz-transform: scale(0); }
+}
+@keyframes popout {
+	0% { opacity: 1.0; transform: scale(1); }
+	10% { transform: scale(1.1); }
+	100% { opacity: 0; transform: scale(0); }
+}

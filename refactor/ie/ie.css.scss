@@ -1,0 +1,106 @@
+@import '../colors';
+@import '../mixins';
+@import '../common';
+
+.no-backgroundsize {
+    .logo-icon,
+    .logotype,
+    .logo-large { background: image-url('logo-nav-small.png') left center no-repeat; }
+    .logo-large { background: image-url('hvst-logo-homepage.png') 0 0 no-repeat; }
+    #pages-index { background: image-url('harvest-bg.jpg') top center no-repeat; }
+    .features {
+        background: image-url('features-sprite.ie.png') no-repeat;
+        &.control { background-position: 0 0; }
+        &.reach { background-position: 0 -78px; }
+        &.manage { background-position: 0 -156px; }
+    }
+    h1.pdf { background: image-url('ie/pdf_icon.png') 10px 5px no-repeat; }
+    .blockquote.pdf { background: image-url('ie/pdf_icon.png') 10px 5px no-repeat; }
+}
+.half-width { width: 49.5%; }
+.new-item,
+*[data-effeckt-type=expand-in].effeckt-list .new-item {
+    height: auto;
+    max-height: 100%;
+    opacity: 1.0;
+    transform: scale(1.0);
+}
+
+/* Layout */
+.ie {
+    #header {
+        &.entering-post {
+            #new_post {
+                textarea, #post_title { width: 100%; }
+            }
+        }
+    }
+}
+
+/* Dashboard */
+.content-card .user-info { height: 50px; }
+.comments .comment {
+    .comment_details { width: 85%; }
+    &.has_vote {
+        .comment_details { width: 79%; }
+    }
+}
+.entry-form {
+    #post_options {
+        zoom: 1;
+        &:before,
+        &:after { content: ""; display: table; clear: both; }
+    }
+    textarea { float: right; }
+}
+#content_fullscreen #pdf_article { overflow: hidden; }
+.avatar-block {
+    .over {
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        font-weight: 900;
+        text-align: center;
+        color: $white;
+        background: $blue;
+        @include box-sizing;
+        &.text-left { text-align: left; }
+        &.text-right { text-align: right; }
+        &.purple-bg {
+            background: $purple;
+        }
+        &.padding-top-bottom { padding-top: 5px; padding-bottom: 5px; }
+        &.padding-left-right { padding-left: 5px; padding-right: 5px; }
+    }
+}
+
+/* Forms */
+input[type=text],
+input[type="password"],
+input[type=email],
+input[type=url],
+input[type=number],
+textarea,
+select {
+    padding: 7px 10px 11px;
+
+    &.bigger {
+        padding: 15px 15px 19px;
+        &:focus,
+        &:active {
+            padding: 14px 14px 18px;
+        }
+    }
+    &:focus,
+    &:active {
+        padding: 6px 9px 10px;
+    }
+}
+
+/* Buttons */
+.btn.has_upload {
+    @extend .clearfix;
+    input[type=file] { opacity: 1.0; }
+}

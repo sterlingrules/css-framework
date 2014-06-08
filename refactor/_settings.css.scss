@@ -1,0 +1,69 @@
+/*
+1. GENERAL
+2. NOTIFICATIONS
+3. COMPANY PAGES
+4. INVITATIONS
+*/
+
+/* 1. GENERAL ------------------------------------------------------------- */
+.accounts,
+.companies,
+.invitations,
+#companies-edit {
+	.master_detail_col:first-child > .col:last-child {
+		min-height: 600px;
+		@include border-radius(4px);
+	}
+}
+
+/* 2. NOTIFICATIONS ------------------------------------------------------------- */
+#accounts-notifications {
+	table td {
+		padding: 10px 20px;
+		border-bottom: 1px solid $purple;
+	}
+}
+.note-description {
+	label {
+		padding-left: 10px;
+		line-height: 31px;
+	}
+}
+.frequency-span {
+	label.radio {
+		float: none;
+		display: inline-block;
+		@include box-sizing;
+		
+		input[type=radio] {
+			float: none;
+			@extend .center;
+		}
+	}
+}
+
+/* 3. COMPANY PAGES ------------------------------------------------------------- */
+li.company-item {
+	overflow: hidden;
+	height: 50px;
+	margin-bottom: 20px;
+	h2 {
+		line-height: 50px;
+	}
+	img {
+		width: auto;
+		height: 50px;
+		margin-right: 10px;
+	}
+	.gear {
+		display: block;
+		width: 26px;
+		height: 50px;
+		// margin: 0 5px;
+		background: image-url('icon/settings-gear.png') center center no-repeat;
+	}
+}
+
+
+/* 4. INVITATIONS ------------------------------------------------------------- */
+#referral-flow {}

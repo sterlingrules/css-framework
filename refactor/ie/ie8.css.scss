@@ -1,0 +1,84 @@
+@import '../colors';
+
+#header {
+    .wrapper > ul.inline-list > li { width: 48%; }
+}
+#activity_drawer ul { display: block; }
+#welcome-bg .two_col .col { width: 44%; }
+.mobile { display: none; } // There isn't an IE on mobile, so this doesn't ever have to display
+
+/* IE 8 */
+/* Profile */
+.effeckt-button .spinner { background: none; }
+
+/* Featured */
+#featured-container .owl-next { float: right; }
+
+/* Share Popin */
+.hvst-popin li > a {
+	&.twitter {
+        background: #28a9f9;
+        &:hover { background: #2fc2ef; }
+    }
+    &.facebook {
+        background: #2d7fd6;
+        &:hover { background: #3b5998; }
+        span { margin: -3px 6px 0; }
+    }
+    &.linkedin {
+        background: #1a8de2;
+        &:hover { background: #0d7db7; }
+        span { margin-left: 2px; margin-right: 2px; }
+    }
+    &.gmail {
+        background: #9a5170;
+        &:hover { background: #cc3333; }
+    }
+    &.yahoo {
+        background: #4d6cd3;
+        &:hover { background: #8b2a90; }
+    }
+    &.email {
+        background: #4caafc;
+        &:hover { background: #76bcf9; }
+    }
+    &.report {
+        background: #d74852;
+        &:hover { background: #eb3f3f; }
+    }
+}
+
+/* Onboarding */
+#interests {
+    .avatar-block,
+    .avatar-block.large {
+        width: 172px;
+        height: auto;
+        cursor: pointer;
+        &.checked {
+            display: inline-block;
+            width: 172px;
+            height: 172px;
+            background: $green image-url('check-large.png') center center no-repeat;
+
+            img { display: none; }
+        }
+        img {
+            position: relative;
+            height: 172px;
+            width: 172px;
+            max-width: 172px;
+        }
+    }
+}
+
+.company-entry-form form.full-width { width: 91%; }
+@media only screen and (max-width: 1415px) {
+	.company-entry-form form.full-width { width: 91%; }
+}
+@media only screen and (max-width: 1280px) {
+	.company-entry-form form.full-width { width: 85%; }
+}
+@media only screen and (max-width: 991px) {
+	.company-entry-form form.full-width { width: 91%; }
+}

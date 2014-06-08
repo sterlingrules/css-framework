@@ -1,0 +1,236 @@
+/*
+1. Portfolio
+2. Positions
+*/
+
+/* 1. Portfolio ------------------------------------------------------------- */
+.portfolio-container {
+	width: 100%;
+	.company-about { @include border-radius(4px); }
+	&.push-page {
+		margin-top: 93px;
+	}
+    &.content-card-container {
+    	background: none;
+    	border: none;
+    	@include box-shadow(none);
+    }
+	.tab-content {
+		// background: $black;
+		.portfolio-widget {
+			.name-portfolio-container {
+				margin: 0 50px 10px 78px;
+				.control-group {
+					float: left;
+					width: 200px;
+					margin: 0;
+					input[type="text"] { margin:0; }
+				}
+				.action {
+					float: left;
+					width: 40px;
+				}
+			}
+		}
+	}
+	.header {
+		padding: 5px 10px;
+		.icon-pushup, .icon-pushdown { margin-top: 8px; }
+	}
+	.portfolio_expansion {
+		height: 0;
+		overflow: hidden;
+		@include transition;
+		&.active {
+			height: auto;
+			@include transition(none);
+		}
+	}
+	.footer { margin: 0; }
+}
+
+// .nav-tabs {
+// 	li {
+// 		a {
+// 			color: $white;
+// 			padding: 10px;
+// 		}
+// 		&.active {
+
+// 		}
+// 	}
+// 	li:not(.active) a:hover {
+// 		color: $white;
+// 		@include transition;
+// 	}
+// }
+#portfolio-fix,
+#portfolio-fix-book {
+	//top: 304px;
+}
+.portfolio-overflow,
+#todays_new_positions .overflow-container {
+	overflow-y: auto;
+	max-height: 250px;
+}
+#todays_new_positions {
+	& > ul > li {
+		padding: 5px 10px 5px 0;
+		@include box-sizing;
+
+		.user-info { overflow: visible; }
+		.details { margin: 2px 0 0 40px; }
+	}
+}
+
+.portfolio, #watchlist_container {
+	.portfolio_stock {
+		a:hover { text-decoration: none; }
+	}
+}
+#portfolio,
+#portfolio-fix,
+#portfolio-fix-book,
+#market_data {
+	table {
+		width: 100%;
+		th, td { border-bottom: 1px solid $lightGray; }
+		.portfolio_return,
+		.portfolio_current,
+		.portfolio_change {
+			min-width: 51px;
+		}
+		.portfolio_actions { min-width: 27px; }
+		tr:last-child {
+			th, td { border-bottom: none; }
+		}
+		tr {
+			background: $white;
+			@include border-radius(4px);
+		}
+	}
+}
+#portfolio {
+	@include border-radius(4px);
+}
+#portfolio_subheading {
+	 padding: 10px 20px;
+	.form-title{
+		display:none;
+	}
+	a.active {
+		color: $purple;
+		font-weight: bold;
+	}
+	&.entering-position {
+		.form-title {
+			display: block;
+		}
+		.actions{
+			display: none;
+		}
+	}
+}
+.portfolio-views {
+	margin-top: 20px;
+	padding: 6px 20px 6px 20px;
+	.expand-recent {
+		text-decoration: none;
+		color: #fff;
+	}
+	.expand-viewers {
+		cursor: pointer;
+		.large-digit {
+			font-size: 14px;
+			line-height: 1.5em;
+		}
+	}
+}
+.portfolio-summary-positions {
+	max-height: 273px;
+	overflow: auto;
+	overflow-y: auto;
+	-ms-overflow-y : scroll;
+	overflow: -moz-scrollbars-vertical;
+}
+
+.watch_list {
+	max-height: 273px;
+	overflow: auto;
+}
+
+.portfolio-performance {
+	background-color: #444444;
+	padding: 0 15px 0 15px;
+	font-size: 11px;
+	font-weight: bold;
+
+	a.nav_help {
+		color: transparent;
+		background: image-url('question-mark.png') 0 4px no-repeat;
+		display: inline-block;
+	}
+}
+#market_data {
+	overflow: auto;
+	height: 400px;
+	table th, table td { border-bottom: 1px solid $purple; }
+	table tr:hover td { background: transparentize($lightPurple, 0.55); }
+}
+
+/* 2. Positions ------------------------------------------------------------- */
+.new_position {
+	.get_quote {
+		.ticker-details {
+			width: 47%;
+			height: 38px;
+			margin: -2px 0 0 10px;
+		}
+	}
+	#position_stock {
+		width: 50%;
+	}
+	#position_post_attributes_content {
+		width: 439px;
+		padding: 8px;
+	}
+	span.error {
+		select {
+			border: solid 1px #ff0000;
+		}
+	}
+	.string.error {
+		.help-inline {
+			margin-left: 343px;
+			width: 130px;
+		}
+	}
+	#position_recommendation,
+	#position_entry_size_percentage {
+		width: 18%;
+		float: left;
+		margin-right: 4px;
+		height: 30px;
+	}
+	#position_time_frame,
+	#position_expected_return {
+		width: 29%;
+		height: 30px;
+	}
+}
+.position-chart-container {
+	height: 200px;
+	display: none;
+	text-shadow: none;
+	// background: $black;
+}
+#stock-chart { overflow: hidden; padding:0 10px; @include box-sizing; }
+#sector-wrapper { padding: 10px 10px 16px; }
+#sector-donut-chart {
+	width: 175px;
+	height: 175px;
+}
+#sector-details {
+	border-spacing: 0 4px;
+	td { border-bottom: none !important; }
+}

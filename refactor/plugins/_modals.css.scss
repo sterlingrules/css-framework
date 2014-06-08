@@ -1,0 +1,77 @@
+.no-js *[rel=modal], .no-js *[rel=fullscreen-modal] {
+	opacity: 0;
+}
+#modal {
+	a.close {
+		cursor: pointer;
+		float: right;
+		width: 33px;
+		height: 33px;
+		margin: 25px 20px 0 0;
+		background: image-url('close.png') 0 0 no-repeat;
+		&:hover {
+			opacity: 0.5;
+		}
+	}
+	@include box-shadow(0 4px 16px transparentize($black, 0.4));
+}
+.global-modal-layout {
+	min-width: 388px;
+	max-width: 500px;
+	@include border-radius;
+	@include box-shadow;
+	@extend .center;
+}
+.modal-header {}
+.modal-pad {
+	color: $gray;
+}
+#content_fullscreen {
+	//margin: 89px 0 0 -8px;
+	background: none;
+
+	.fs-container {
+		position: fixed;
+		top: 50%;
+		width: 300px;
+	}
+	.fs-arrow-left-container { left: 0; }
+	.fs-arrow-right-container { right: 0; }
+
+	.fs-details {
+		display: none;
+		overflow: hidden;
+		top: 50%;
+		height: 75px;
+		margin-top: -38px;
+		background: $gray;
+
+		&, a { color: $white; }
+		img { width: 75px; height: 75px; }
+		.title, .content { padding-top: 5px; }
+	}
+	.fs-arrow-left-details {
+		left: 46px;
+		padding-left: 53px;
+		img { margin-left: 10px; }
+	}
+	.fs-arrow-right-details {
+		right: 46px;
+		padding-right: 56px;
+		img { margin-right: 10px; }
+	}
+
+	.fs-arrow {
+		position: fixed;
+		top: 50%;
+		width: 46px;
+		height: 75px;
+		margin-top: -38px;
+
+		&:hover {
+			.fs-details { display: block; }
+		}
+	}
+	.fs-arrow-left { left: 0; background: image-url('fs-arrow-left.png'); }
+	.fs-arrow-right { right: 0; background: image-url('fs-arrow-right.png'); }
+}

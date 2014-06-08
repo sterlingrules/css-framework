@@ -1,0 +1,41 @@
+.front-bg { z-index:-40000; }
+
+/* 0 */
+.ticker-token { z-index: 0; }
+span.user-icon { z-index: 1; }
+.dropdown-menu { z-index: 2; }
+.wrapper.sidebar { z-index: 3; }
+.feed { z-index: 3; }
+.feed-heading { z-index: 4; }
+#sidebar { z-index: 5; }
+.portfolio-container { z-index: 6; }
+.company-entry-form { z-index: 7; }
+.navbar { z-index: 8; }
+#ticker_parade { z-index: 9; }
+.mfp-preloader { z-index: 10; }
+#content_fullscreen .content-card-container.left { z-index: 11; }
+.fs-arrow { z-index: 12; }
+.comments { z-index: 13; }
+.share-options { z-index: 14; }
+
+/* 900 */
+.admin_dashboard #header { z-index: 900; }
+.tipsy { z-index: 902; }
+#header { z-index: 903; }
+header { z-index: 904; }
+.joyride-modal-bg { z-index: 905; }
+.joyride-tip-guide { z-index: 906; }
+.joyride-explose-wrapper { z-index: 907; }
+
+/* 1000 */
+#modal, .modal-window { z-index: 1000; }
+.popover { z-index: 1010; }
+.chosen-container {
+	.chosen-with-drop { z-index: 1033; }
+	.chosen-drop { z-index: 1034; }
+}
+.ticker-token.open { z-index: 1035; }
+.tooltip { z-index: 1051; }
+
+/* 1100 */
+.joyride-expose-cover { z-index: 1100; }

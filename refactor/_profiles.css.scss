@@ -1,0 +1,181 @@
+/*
+-------------------------------------------------------------
+  PROFILES
+-------------------------------------------------------------
+1. GENERAL
+	1.1 Profile Header
+2. USER
+3. COMPANY
+*/
+
+/* 1. GENERAL ------------------------------------------------------------- */
+
+/* 1.1 Profile Header */
+span.user-icon {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: '';
+	display: block;
+	width: 24px;
+	height: 24px;
+}
+*[id*='book-'],
+*[id*='companies-'] {
+	.navbar {
+		position: fixed;
+		top: 69px;
+		width: 100%;
+	}
+	.row { top: 125px; }
+	.portfolio-container {
+		.profile-border {
+			@include border-radius(4px);
+		}
+		margin-right: 0;
+		margin-left: 420px;
+		margin-bottom: 20px;
+		width: auto;
+		.header {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+		.small {
+			font-size: 14px;
+		}
+	}
+}
+
+.profile {
+	margin-bottom: 20px;
+
+	.professional { display: inline-block; margin-left: 5px; width: 16px; height: 16px; background: transparent image-url('professional.png') 0 0 no-repeat }
+    .featured { display: inline-block; margin-left: 5px; width: 16px; height: 16px; background: transparent image-url('featured.png') 0 0 no-repeat }
+
+	.avatar {
+		width: 140px;
+		height: 140px;
+		border: 8px solid $white;
+		@include border-radius(4px);
+	}
+	.info {
+		width: 100%;
+	}
+	.action {
+		.icon-edit-pencil-icon {
+			height: 20px;
+			width: 30px;
+			font-size: 0;
+		}
+		& > a {
+			@extend .small;
+			&:hover {
+				text-decoration:none;
+			}
+		}
+		a.report-link {
+			color: $gray;
+			margin-left: 5px;
+			padding-left: 10px;
+			background: image-url('report-flag.png') left center no-repeat;
+		}
+	}
+	&.profile-small {
+		display: none;
+		height: 90px;
+		margin-bottom: 20px;
+		img { width: auto; height: 90px; }
+		.info { width: 96%; }
+	}
+	#feed { margin-right: 0; }
+
+  .profile-recommended-reading {
+    p {
+      margin-bottom: 5px
+    }
+    p:first-child {
+      margin-top: 0px
+    }
+    p:last-child {
+      margin-bottom: 0px
+    }
+  }
+}
+
+/* Profile Nav Tabs */
+.navbar-inner {
+	.nav-tabs {
+		li.briefcase {
+			margin-top: 0px;
+			margin-left: 19px;
+			padding-left: 19px;
+			padding-top: 0px;
+			height: 25px;
+			border-bottom: 0;
+			background: transparent image-url('sprites/briefcase_hover.png') 0px 10px no-repeat;
+
+			&.active { background: transparent image-url('sprites/briefcase2.png') 0px 10px no-repeat; }
+			&:hover:not(.active) { background: transparent image-url('sprites/briefcase2.png') 0px 10px no-repeat; }
+		}
+	}
+	input[type=text] {
+		min-width: 225px;
+		height: 36px;
+		background: $black image-url('search.png') 200px center no-repeat;
+		&:focus {
+			background-color: $white;
+		}
+	}
+}
+
+
+/* 2. USER ------------------------------------------------------------- */
+.book, .companies {
+	.fixed-container {
+		top: 89px;
+		/* Portfolio */
+		.header {
+			.icon-pushup, .icon-pushdown { display: none; }
+		}
+		.portfolio_expansion { height: auto; }
+	}
+	.saves_expand {
+		.content-actions{
+			a { margin-right: 25px; }
+			.pull-right { margin-right: 0px; }
+		}
+		.content-card {
+			width: 460px;
+		}
+	}
+}
+
+/* 3. COMPANY ------------------------------------------------------------- */
+.company-entry-form {
+	overflow: hidden;
+	margin: 0 0 20px 420px;
+	img {
+		position: relative;
+		width: auto;
+		height: 68px;
+	}
+	.entry-form {
+		height: auto;
+		margin-right: -68px;
+		padding-right: 68px;
+		textarea,
+		#post_title {
+			margin: 0;
+			@include transition(none);
+			@extend .full-width;
+		}
+		.post_options {
+			width: auto;
+		}
+	}
+	fieldset { display: none; }
+	&.entering-post {
+		#post_title { display: block; height: auto; }
+		fieldset { display: block; }
+	}
+}

@@ -1,0 +1,115 @@
+$icon-spacing: 20px;
+$icon-sprite-dimensions: true;
+
+$sprites: sprite-map("sprites/*.png", $spacing: 2px);
+$sprites2x: sprite-map("sprites@2x/*.png", $spacing: 2px);
+
+@import "vote/*.png";
+@import "icon/*.png";
+@import "header/*.png";
+@import "chat-status/*.png";
+@import "window/*.png";
+@import "chat-bug/*.png";
+
+@include all-vote-sprites;
+@include all-icon-sprites;
+@include all-header-sprites;
+@include all-chat-status-sprites;
+@include all-window-sprites;
+@include all-chat-bug-sprites;
+
+*[class*='icon-'],
+[class^="icon-"],
+.icon {
+	vertical-align: middle;
+	display: inline-block;
+	height: 14px;
+	line-height: 14px;
+}
+.icon-twitter,
+.icon-facebook,
+.icon-linkedin,
+.icon-google-plus,
+.icon-arrow-up,
+.icon-arrow-down,
+.icon-close-position,
+.icon-delete,
+.icon-save {
+	width: 20px !important;
+}
+.icon-add-position-button,
+.icon-delete-button {
+	width: 40px;
+	height: 22px;
+	line-height: 0.7em !important;
+	background-color: $blue;
+	@include border-radius;
+}
+.icon-add-position-button { line-height: 11px; background-image: none; }
+.icon-signal-info {
+	width: 16px;
+	height: 16px;
+}
+.icon-view-post,
+.icon-pushdown,
+.icon-pushup {
+	cursor: pointer;
+	width: 22px;
+}
+.icon-mutual-connections { width: 18px; }
+.icon-co-invest { width: 14px; }
+.icon-pro { display: block; }
+
+/* SPRITES */
+.sprite { display: inline-block; }
+.sprite.block { display: block; }
+
+.pdf_icon { @include retina-sprite(pdf_icon); }
+.pdf_icon-white { @include retina-sprite(pdf_icon-white); }
+.upgrade { @include retina-sprite(upgrade); }
+.downgrade { @include retina-sprite(downgrade); }
+a.active .upgrade { @include retina-sprite(upgrade_active); }
+a.active .downgrade { @include retina-sprite(downgrade_active); }
+a:not(.active):hover .upgrade { @include retina-sprite(upgrade_hover); }
+a:not(.active):hover .downgrade { @include retina-sprite(downgrade_hover); }
+a:not(.active):hover .icon-save { @include retina-sprite(briefcase_hover); }
+.perspective { @include retina-sprite(perspective); }
+a:hover .perspective { @include retina-sprite(perspective_hover); }
+.ellipsis { @include retina-sprite(ellipsis, $hover: true, $active: true); }
+.icon-arrow-down { @include retina-sprite(chevron-down); }
+.icon-save {
+	@include retina-sprite(briefcase2);
+	&.done { @include retina-sprite(briefcase_active); }
+}
+
+/* SOCIAL */
+
+/* twitter */
+.twitter-icon-white { @include retina-sprite(twitter_icon-white); }
+.twitter-icon-color { @include retina-sprite(twitter_icon-color); }
+
+/* facebook */
+.facebook-icon-white { @include retina-sprite(facebook_icon-white); }
+.facebook-icon-white-other { @include retina-sprite(facebook_icon-white-other); }
+.facebook-icon-color { @include retina-sprite(facebook_icon-color); }
+
+/* linkedin */
+.linkedin-icon-white { @include retina-sprite(linkedin_icon-white); }
+.linkedin-icon-color { @include retina-sprite(linkedin_icon-color); }
+.linkedin-block-icon-white { @include retina-sprite(linkedin_block_icon-white); }
+
+/* yahoo */
+.yahoo-icon-white { @include retina-sprite(yahoo_icon-white); }
+.yahoo-icon-white-other { @include retina-sprite(yahoo_icon-white-other); }
+.yahoo-icon-color { @include retina-sprite(yahoo_icon-color); }
+
+/* gmail */
+.gmail-icon-white { @include retina-sprite(gmail_icon-white); }
+.gmail-icon-color { @include retina-sprite(gmail_icon-color); }
+
+/* gplus */
+.gplus-icon-white { @include retina-sprite(gplus_icon-white); }
+.gplus-icon-white-other { @include retina-sprite(gplus_icon-white-other); }
+.gplus-icon-color { @include retina-sprite(gplus_icon-color); }
+
+.email-icon-white { @include retina-sprite(email_icon-white); @include border-radius; }

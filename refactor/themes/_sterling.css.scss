@@ -1,0 +1,61 @@
+.sterling {
+
+	$black: #0c0624;
+	$white: #FAFFF9;
+
+	$text: #63646B; /* gray */
+	$link: #3DADDB; /* blue */
+
+	$primary: $white;
+	$secondary: #49C4CB; /* teal */
+	$accent: #E1757B; /* red */
+
+	$blue: #3DADDB;
+	$orange: #ffab23;
+	$green: #00ff40;
+	$red: #E1757B;
+	$lightGray: #bdb5ca;
+	$darkGray: #363636;
+	$insetShade: #23194B; /* darker purple */
+	$purple: #2A2055;
+	$darkPurple: #1a113e;
+
+	&, body { color: $text; background: $primary; }
+
+	a { color: $link; }
+	a.btn.blue, .ticker-token a { color: $primary !important; background: $link; }
+	#header {
+		background: $secondary;
+		textarea {
+			background: transparent;
+			@include box-shadow(none);
+			&:focus { background: $primary; }
+		}
+		.avatar { width: 48px; height: 48px; margin: 10px 0; }
+	}
+	.content-card-container {
+		color: $text; background: none;
+		padding-bottom: 20px;
+		border-bottom: 1px solid transparentize($secondary, 0.5);
+		.content-card {
+			color: $text;
+			.quick-thought .trade {
+				background: $secondary;
+			}
+		}
+	}
+	.avatar-block, .avatar {
+		overflow: hidden;
+		@include border-radius(50%);
+	}
+
+	input, textarea, select {
+		&[data-loading=true]:not([data-effeckt-type=slide-left]) { background: $primary image-url('circle-loader.gif') 98% center no-repeat !important; }
+		&::-webkit-input-placeholder { color: $primary; }
+		&:-moz-placeholder { color: $primary; } /* Firefox 18- */
+		&::-moz-placeholder { color: $primary; } /* Firefox 19+ */
+		&:-ms-input-placeholder { color: $primary; }
+		&.placeholder { color: $primary; } /* IE */
+	}
+	
+}
